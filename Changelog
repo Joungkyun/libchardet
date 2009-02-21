@@ -1,0 +1,9 @@
+Mozilla's Universal Charset Detector C/C++ library
+
+$Id: Changelog,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
+
+*** 1.0.0
+
+2009/02/22 JoungKyun.Kim <http://oops.org>
+	- release 1.0.0 based on perl Encode-Detect-1.01
+
