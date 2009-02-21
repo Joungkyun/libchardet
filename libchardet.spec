@@ -1,4 +1,4 @@
-%define revisions "$Id: libchardet.spec,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $"
+%define revisions "$Id: libchardet.spec,v 1.2 2009-02-21 20:13:07 oops Exp $"
 %define _unpackaged_files_terminate_build 0
 
 Summary: Mozilla Universal Chardet library
@@ -62,6 +62,7 @@ for developing programs which use the libchardet libraries.
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_includedir}/chardet/*.h
+%{_mandir}/ko/*
 
 %changelog
 * Fri Feb 22 2008 JoungKyun.Kim <http://oops.org> 1:1.0.0-1
