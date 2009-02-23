@@ -1,5 +1,5 @@
 /* chardet-config.h.in.  Generated from configure.ac by autoheader.  */
-/* $Id: chardet-config.h.in,v 1.2 2009-02-23 03:27:00 oops Exp $ */
+/* $Id: chardet-config.h.in,v 1.3 2009-02-23 13:51:24 oops Exp $ */
 #ifndef CHARDEC_CONFIG_H
 #define CHARDEC_CONFIG_H
 
