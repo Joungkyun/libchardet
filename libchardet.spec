@@ -1,10 +1,10 @@
-%define revisions "$Id: libchardet.spec,v 1.2 2009-02-21 20:13:07 oops Exp $"
+%define revisions "$Id: libchardet.spec,v 1.3 2009-02-23 14:22:51 oops Exp $"
 %define _unpackaged_files_terminate_build 0
 
 Summary: Mozilla Universal Chardet library
 Summary(ko): 모질라 유니버샬 캐릭터셋 디텍트 라이브러리
 Name: libchardet
-Version: 0.0.1
+Version: 1.0.1
 Release: 1
 Epoch: 1
 License: MPL
@@ -65,6 +65,9 @@ for developing programs which use the libchardet libraries.
 %{_mandir}/ko/*
 
 %changelog
-* Fri Feb 22 2008 JoungKyun.Kim <http://oops.org> 1:1.0.0-1
+* Mon Feb 23 2008 JoungKyun.Kim <http://oops.org> 1:1.0.1-1
+- update 1.0.1
+
+* Fri Feb 20 2009 JoungKyun.Kim <http://oops.org> 1:1.0.0-1
 - first packing
 
