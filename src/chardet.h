@@ -16,7 +16,7 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id: chardet.h,v 1.2 2009-02-23 03:13:27 oops Exp $
+ * $Id: chardet.h,v 1.3 2009-02-23 05:26:12 oops Exp $
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -42,7 +42,7 @@
 #define LIBCHARDET_MAJOR_VER 1
 #define LIBCHARDET_MINOR_VER 0
 #define LIBCHARDET_PATCH_VER 0
-#define LIBCHARDET_VER 1.0.0
+#define LIBCHARDET_VER "1.0.0"
 
 #define CHARDET_OUT_OF_MEMORY -128
 #define CHARDET_MEM_ALLOCATED_FAIL -127
