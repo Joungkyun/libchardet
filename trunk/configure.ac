@@ -1,7 +1,7 @@
 # Process this file with autoconf to produce a configure script.
 # Configure template for chardet library
 #
-# $Id: configure.ac,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
+# $Id: configure.ac,v 1.2 2009-02-23 03:13:27 oops Exp $
 
 #
 AC_PREREQ(2.59)
@@ -16,9 +16,9 @@ AC_SUBST(SONAME_MAJOR)
 AC_SUBST(SONAME_MINOR)
 AC_SUBST(SONAME_REVISION)
 
-SONAME_MAJOR=0
+SONAME_MAJOR=1
 SONAME_MINOR=0
-SONAME_REVISION=1
+SONAME_REVISION=0
 SONAME_VERSION=$SONAME_MAJOR.$SONAME_MINOR.$SONAME_REVISION
 
 SONAME_VALUE=$(($SONAME_MAJOR + $SONAME_MINOR))
