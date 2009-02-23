@@ -1,11 +1,12 @@
 Mozilla's Universal Charset Detector C/C++ library
 
-$Id: Changelog,v 1.3 2009-02-23 13:47:40 oops Exp $
+$Id: Changelog,v 1.4 2009-02-23 13:56:47 oops Exp $
 
 *** 1.0.1
 
 2009/02/23
 	- fix wrong detect TIS-620 charset
+	- release 1.0.1
 
 *** 1.0.0
 
