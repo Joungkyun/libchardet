@@ -1,11 +1,11 @@
 # Process this file with autoconf to produce a configure script.
 # Configure template for chardet library
 #
-# $Id: configure.ac,v 1.5 2010-07-05 11:53:18 oops Exp $
+# $Id: configure.ac,v 1.6 2010-07-05 11:55:49 oops Exp $
 
 #
 AC_PREREQ(2.59)
-AC_INIT([chardet], [1.0.1], [http://oops.org])
+AC_INIT([chardet], [1.0.2], [http://oops.org])
 AC_CONFIG_SRCDIR([src/nsUniversalDetector.h])
 AC_CONFIG_HEADER([chardet-config.h])
 AC_PREFIX_DEFAULT([/usr/local])
