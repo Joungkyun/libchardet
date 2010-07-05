@@ -16,7 +16,7 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id: chardet.cpp,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
+ * $Id: chardet.cpp,v 1.2 2010-07-05 11:53:18 oops Exp $
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -53,7 +53,7 @@ typedef struct Detect_t {
 
 #include <chardet.h>
 
-DetectObj * detect_obj_init (void) {
+CHARDET_API DetectObj * detect_obj_init (void) {
 	DetectObj * obj;
 
 	if ( (obj = (DetectObj *) PR_Malloc (sizeof (DetectObj))) == NULL )
@@ -65,14 +65,14 @@ DetectObj * detect_obj_init (void) {
 	return obj;
 }
 
-void detect_obj_free (DetectObj ** obj) {
+CHARDET_API void detect_obj_free (DetectObj ** obj) {
 	if ( *obj != NULL ) {
 		PR_FREEIF ((*obj)->encoding);
 		PR_FREEIF (*obj);
 	}
 }
 
-Detect * detect_init (void) {
+CHARDET_API Detect * detect_init (void) {
 	Detect *det = NULL;
 
 	det = (Detect *) PR_Malloc (sizeof (Detect));
@@ -84,15 +84,15 @@ Detect * detect_init (void) {
 	return det;
 }
 
-void detect_reset (Detect **det) {
+CHARDET_API void detect_reset (Detect **det) {
 	(*det)->detect->Reset ();
 }
 
-void detect_dataend (Detect **det) {
+CHARDET_API void detect_dataend (Detect **det) {
 	(*det)->detect->DataEnd ();
 }
 
-short detect_handledata (Detect ** det, const char * buf, DetectObj ** obj) {
+CHARDET_API short detect_handledata (Detect ** det, const char * buf, DetectObj ** obj) {
 	const char * ret;
 
 	if ( (*det)->detect->HandleData (buf, strlen (buf)) == NS_ERROR_OUT_OF_MEMORY )
@@ -112,12 +112,12 @@ short detect_handledata (Detect ** det, const char * buf, DetectObj ** obj) {
 	return CHARDET_SUCCESS;
 }
 
-void detect_destroy (Detect **det) {
+CHARDET_API void detect_destroy (Detect **det) {
 	delete (*det)->detect;
 	PR_FREEIF (*det);
 }
 
-short detect (const char *buf, DetectObj ** obj) {
+CHARDET_API short detect (const char *buf, DetectObj ** obj) {
 	Detector * det;
 	const char * ret;
 
