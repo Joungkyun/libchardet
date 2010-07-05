@@ -16,7 +16,7 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id: chardet.cpp,v 1.2 2010-07-05 11:53:18 oops Exp $
+ * $Id: chardet.cpp,v 1.3 2010-07-05 12:17:50 oops Exp $
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -52,6 +52,14 @@ typedef struct Detect_t {
 } Detect;
 
 #include <chardet.h>
+
+CHARDET_API char * detect_version (void) {
+	return LIBCHARDET_VERSION;
+}
+
+CHARDET_API char * detect_uversion (void) {
+	return LIBCHARDET_UVERSION;
+}
 
 CHARDET_API DetectObj * detect_obj_init (void) {
 	DetectObj * obj;

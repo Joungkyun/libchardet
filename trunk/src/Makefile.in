@@ -1,4 +1,4 @@
-# $Id: Makefile.in,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
+# $Id: Makefile.in,v 1.2 2010-07-05 12:17:50 oops Exp $
 srcdir          = @srcdir@
 top_srcdir      = @top_srcdir@
 builddir        = @builddir@
@@ -69,7 +69,7 @@ UC_SRCS = CharDistribution.cpp JpCntx.cpp LangBulgarianModel.cpp \
 #		nsMBCSGroupProber.h nsPkgInt.h nsSBCSGroupProber.h \
 #		nsSBCharSetProber.h nsSJISProber.h nsUTF8Prober.h \
 #		nsUniversalDetector.h ../include/nscore.h  ../include/prmem.h
-UC_HEADERS = nsUniversalDetector.h ../include/nscore.h chardet.h
+UC_HEADERS = nsUniversalDetector.h ../include/nscore.h ../include/version.h chardet.h
 
 UC_OBJS = $(UC_SRCS:.cpp=.lo)
 
