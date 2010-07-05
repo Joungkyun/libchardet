@@ -16,7 +16,7 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id: chardet.h,v 1.4 2010-07-05 11:53:18 oops Exp $
+ * $Id: chardet.h,v 1.5 2010-07-05 12:17:50 oops Exp $
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -46,6 +46,8 @@
 #include <chardet-config.h>
 #endif
 
+#include <version.h>
+
 #include <stdio.h>
 #include <string.h>
 
@@ -71,6 +73,9 @@ extern "C" {
 		char * encoding;
 		float confidence;
 	} DetectObj;
+
+	CHARDET_API char * detect_version (void);
+	CHARDET_API char * detect_uversion (void);
 
 	CHARDET_API DetectObj * detect_obj_init (void);
 	CHARDET_API void detect_obj_free (DetectObj **);
