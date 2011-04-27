@@ -16,7 +16,7 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id: chardet.h,v 1.5 2010-07-05 12:17:50 oops Exp $
+ * $Id: chardet.h,v 1.3 2009-02-23 05:26:12 oops Exp $
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -32,21 +32,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-#if defined _WIN32 || defined __CYGWIN__
-	#define CHARDET_API
-#else
-	#if defined(__GNUC__) && __GNUC__ >= 4
-		#define CHARDET_API __attribute__ ((visibility("default")))
-	#else
-		#define CHARDET_API
-	#endif
-#endif
-
 #ifdef HAVE_CONFIG_H
 #include <chardet-config.h>
 #endif
-
-#include <version.h>
 
 #include <stdio.h>
 #include <string.h>
@@ -74,18 +62,15 @@ extern "C" {
 		float confidence;
 	} DetectObj;
 
-	CHARDET_API char * detect_version (void);
-	CHARDET_API char * detect_uversion (void);
+	DetectObj * detect_obj_init (void);
+	void detect_obj_free (DetectObj **);
 
-	CHARDET_API DetectObj * detect_obj_init (void);
-	CHARDET_API void detect_obj_free (DetectObj **);
-
-	CHARDET_API Detect * detect_init (void);
-	CHARDET_API void detect_reset (Detect **);
-	CHARDET_API void detect_dataend (Detect **);
-	CHARDET_API short detect_handledata (Detect **, const char *, DetectObj **);
-	CHARDET_API void detect_destroy (Detect **);
-	CHARDET_API short detect (const char *, DetectObj **);
+	Detect * detect_init (void);
+	void detect_reset (Detect **);
+	void detect_dataend (Detect **);
+	short detect_handledata (Detect **, const char *, DetectObj **);
+	void detect_destroy (Detect **);
+	short detect (const char *, DetectObj **);
 #ifdef __cplusplus
 };
 #endif

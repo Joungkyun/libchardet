@@ -118,7 +118,6 @@ extern SequenceModel Latin5BulgarianModel;
 extern SequenceModel Win1251BulgarianModel;
 extern SequenceModel Latin2HungarianModel;
 extern SequenceModel Win1250HungarianModel;
-extern SequenceModel TIS620ThaiModel;
 extern SequenceModel Win1255Model;
 
 #endif /* nsSingleByteCharSetProber_h__ */

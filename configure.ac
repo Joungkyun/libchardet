@@ -1,11 +1,11 @@
 # Process this file with autoconf to produce a configure script.
 # Configure template for chardet library
 #
-# $Id: configure.ac,v 1.6 2010-07-05 11:55:49 oops Exp $
+# $Id: configure.ac,v 1.2 2009-02-23 03:13:27 oops Exp $
 
 #
 AC_PREREQ(2.59)
-AC_INIT([chardet], [1.0.2], [http://oops.org])
+AC_INIT([chardet], [1.0.0], [http://oops.org])
 AC_CONFIG_SRCDIR([src/nsUniversalDetector.h])
 AC_CONFIG_HEADER([chardet-config.h])
 AC_PREFIX_DEFAULT([/usr/local])
@@ -55,13 +55,6 @@ fi
 AC_PATH_PROG(PERL, perl)
 if test ! -f "$ac_cv_path_PERL"; then
 	AC_MSG_ERROR(Can't not found perl)
-fi
-
-if test "$CC" = "gcc"; then
-	GCC_MAJOR_VERSION=`$CC --version | $SED -n '1s/[[^0-9]]*//;1s/\..*//;1p'`
-	if test $GCC_MAJOR_VERSION -ge 4; then
-		CFLAGS="$CFLAGS -fvisibility=hidden"
-	fi
 fi
 
 # Checks for header files.

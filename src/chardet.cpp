@@ -16,7 +16,7 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id: chardet.cpp,v 1.3 2010-07-05 12:17:50 oops Exp $
+ * $Id: chardet.cpp,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -53,15 +53,7 @@ typedef struct Detect_t {
 
 #include <chardet.h>
 
-CHARDET_API char * detect_version (void) {
-	return LIBCHARDET_VERSION;
-}
-
-CHARDET_API char * detect_uversion (void) {
-	return LIBCHARDET_UVERSION;
-}
-
-CHARDET_API DetectObj * detect_obj_init (void) {
+DetectObj * detect_obj_init (void) {
 	DetectObj * obj;
 
 	if ( (obj = (DetectObj *) PR_Malloc (sizeof (DetectObj))) == NULL )
@@ -73,14 +65,14 @@ CHARDET_API DetectObj * detect_obj_init (void) {
 	return obj;
 }
 
-CHARDET_API void detect_obj_free (DetectObj ** obj) {
+void detect_obj_free (DetectObj ** obj) {
 	if ( *obj != NULL ) {
 		PR_FREEIF ((*obj)->encoding);
 		PR_FREEIF (*obj);
 	}
 }
 
-CHARDET_API Detect * detect_init (void) {
+Detect * detect_init (void) {
 	Detect *det = NULL;
 
 	det = (Detect *) PR_Malloc (sizeof (Detect));
@@ -92,15 +84,15 @@ CHARDET_API Detect * detect_init (void) {
 	return det;
 }
 
-CHARDET_API void detect_reset (Detect **det) {
+void detect_reset (Detect **det) {
 	(*det)->detect->Reset ();
 }
 
-CHARDET_API void detect_dataend (Detect **det) {
+void detect_dataend (Detect **det) {
 	(*det)->detect->DataEnd ();
 }
 
-CHARDET_API short detect_handledata (Detect ** det, const char * buf, DetectObj ** obj) {
+short detect_handledata (Detect ** det, const char * buf, DetectObj ** obj) {
 	const char * ret;
 
 	if ( (*det)->detect->HandleData (buf, strlen (buf)) == NS_ERROR_OUT_OF_MEMORY )
@@ -120,12 +112,12 @@ CHARDET_API short detect_handledata (Detect ** det, const char * buf, DetectObj 
 	return CHARDET_SUCCESS;
 }
 
-CHARDET_API void detect_destroy (Detect **det) {
+void detect_destroy (Detect **det) {
 	delete (*det)->detect;
 	PR_FREEIF (*det);
 }
 
-CHARDET_API short detect (const char *buf, DetectObj ** obj) {
+short detect (const char *buf, DetectObj ** obj) {
 	Detector * det;
 	const char * ret;
 
