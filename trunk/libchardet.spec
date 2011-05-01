@@ -1,4 +1,4 @@
-%define revisions "$Id: libchardet.spec,v 1.4 2010-07-05 11:55:49 oops Exp $"
+%define revisions "$Id$"
 %define _unpackaged_files_terminate_build 0
 
 Summary: Mozilla Universal Chardet library

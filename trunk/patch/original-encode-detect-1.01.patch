@@ -1,12 +1,12 @@
 
 Oridignal Encode-Detect code 1.01 diff
-$Id: original-encode-detect-1.01.patch,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
+$Id$
 
 diff -urNp Encode-Detect-1.01/src/Makefile.in libchardet-1.0.0/src/Makefile.in
 --- Encode-Detect-1.01/src/Makefile.in	1970-01-01 09:00:00.000000000 +0900
 +++ libchardet-1.0.0/src/Makefile.in	2009-02-21 04:34:01.000000000 +0900
 @@ -0,0 +1,110 @@
-+# $Id: original-encode-detect-1.01.patch,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
++# $Id$
 +srcdir          = @srcdir@
 +top_srcdir      = @top_srcdir@
 +builddir        = @builddir@
@@ -138,7 +138,7 @@ diff -urNp Encode-Detect-1.01/src/chardet.cpp libchardet-1.0.0/src/chardet.cpp
 + *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
 + *          C wrapping API by JoungKyun.Kim <http://oops.org>
 + *
-+ * $Id: original-encode-detect-1.01.patch,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
++ * $Id$
 + *
 + * Alternatively, the contents of this file may be used under the terms of
 + * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -295,7 +295,7 @@ diff -urNp Encode-Detect-1.01/src/chardet.h libchardet-1.0.0/src/chardet.h
 + *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
 + *          C wrapping API by JoungKyun.Kim <http://oops.org>
 + *
-+ * $Id: original-encode-detect-1.01.patch,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
++ * $Id$
 + *
 + * Alternatively, the contents of this file may be used under the terms of
 + * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -367,7 +367,7 @@ diff -urNp Encode-Detect-1.01/src/nsUniversalDetector.cpp libchardet-1.0.0/src/n
 + *          JoungKyun.Kim <http://oops.org>
 + *            - Add mDetectedConfidence
 + *
-+ * $Id: original-encode-detect-1.01.patch,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
++ * $Id$
   *
   * Alternatively, the contents of this file may be used under the terms of
   * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -488,7 +488,7 @@ diff -urNp Encode-Detect-1.01/src/nsUniversalDetector.h libchardet-1.0.0/src/nsU
 + *          JoungKyun.Kim <http://oops.org>
 + *            - Add mDetectedConfidence
 + *
-+ * $Id: original-encode-detect-1.01.patch,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
++ * $Id$
   *
   * Alternatively, the contents of this file may be used under the terms of
   * either the GNU General Public License Version 2 or later (the "GPL"), or

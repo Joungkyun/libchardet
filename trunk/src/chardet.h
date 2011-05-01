@@ -16,7 +16,7 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id: chardet.h,v 1.5 2010-07-05 12:17:50 oops Exp $
+ * $Id$
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
