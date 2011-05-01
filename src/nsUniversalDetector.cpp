@@ -24,7 +24,7 @@
  *          JoungKyun.Kim <http://oops.org>
  *            - Add mDetectedConfidence
  *
- * $Id: nsUniversalDetector.cpp,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
+ * $Id$
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or

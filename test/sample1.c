@@ -1,7 +1,7 @@
 /*
  * sample code with libchardet
  * author: JoungKyun.Kim <http://oops.org>
- * $Id: sample1.c,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
+ * $Id$
  */
 #include <chardet.h>
 //#include "../src/chardet.h"

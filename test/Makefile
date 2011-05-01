@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.1.1.1 2009-02-21 20:08:02 oops Exp $
+# $Id$
 #
 
 CC     = gcc

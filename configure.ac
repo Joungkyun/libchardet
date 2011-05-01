@@ -1,7 +1,7 @@
 # Process this file with autoconf to produce a configure script.
 # Configure template for chardet library
 #
-# $Id: configure.ac,v 1.6 2010-07-05 11:55:49 oops Exp $
+# $Id$
 
 #
 AC_PREREQ(2.59)
