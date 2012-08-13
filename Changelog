@@ -2,6 +2,12 @@ Mozilla's Universal Charset Detector C/C++ library
 
 $Id$
 
+*** 1.0.3
+
+2012/08/14 KST
+	- fixed comparison on JpCntx.cpp
+
+
 *** 1.0.2
 
 2010/07/05 KST

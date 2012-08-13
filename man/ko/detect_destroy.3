@@ -1,17 +1,25 @@
-.TH DETECT_DESTROY 3 "22 Feb 2009"
-.UC 4
-.SH ÀÌ¸§
-detect_destroy - chardet file handle À» ´İ´Â´Ù.
-.SH »ç¿ë¹ı
-.I #include <chardet.h>
-.br
-.I void chardet_destroy (Detect ** handle);
-.SH ¼³¸í
-chardet library ÀÇ file handle À» ´İ´Â´Ù.
-.SH ¹İÈ¯°ª
-¹İÈ¯ °ª ¾øÀ½
-.PP
-.SH ¿¹Á¦
+.TH detect_destroy 3 2011-05-02 "libchardet manuals"
+.\" Process with
+.\" nroff -man detect_destroy.3
+.\" 2011-05-02 JoungKyun Kim <htt://oops.org>
+.\" $Id$
+
+.SH ì´ë¦„
+detect_destroy \- chardet resourceë¥¼ í•´ì œí•œë‹¤.
+
+.SH ì‚¬ìš©ë²•
+.B "#include <chardet.h>"
+.sp
+.BI "void detect_destroy (Detect ** handle);"
+
+.SH ì„¤ëª…
+.BI detect_init
+ì— ì˜í•˜ì—¬ í• ë‹¹ëœ resourceë¥¼ í•´ì œí•œë‹¤.
+
+.SH ë°˜í™˜ê°’
+void
+
+.SH ì˜ˆì œ
 .nf
 #include <chardet.h>
 
@@ -31,14 +39,14 @@ int main (void) {
 		return CHARDET_MEM_ALLOCATED_FAIL;
 	}
 
-	switch (detect_handledata (&d, "¾È³çÇÏ¼¼¿ä", &obj)) {
+	switch (detect_handledata (&d, "ì•ˆë…•í•˜ì„¸ìš”", &obj)) {
 		case CHARDET_OUT_OF_MEMORY :
 			fprintf (stderr, "On handle processing, occured out of memory\\n");
 			detect_obj_free (&obj);
 			return CHARDET_OUT_OF_MEMORY;
 		case CHARDET_NULL_OBJECT :
 			fprintf (stderr,
-					"2st argument of chardet() is must memory allocation "
+					"3st argument of chardet_handledata() is must memory allocation "
 					"with detect_obj_init API\\n");
 			return CHARDET_NULL_OBJECT;
 	}
@@ -50,14 +58,13 @@ int main (void) {
     return 0;
 }
 .fi
-.SH ÀúÀÚ
-±èÁ¤±Õ
-.SH ¹ö±× ¸®Æ÷Æ®
-<http://oops.org> ÀÇ QnA °Ô½ÃÆÇÀ» ÀÌ¿ëÇÑ´Ù.
-.SH ÀúÀÛ±Ç
-Copyright (c) 2009 OOPS Development Organization
 
-ÀÌ ÇÁ·Î±×·¥Àº MPL/GPL2/LGPL2.1 À» µû¸£¸ç, »ç¿ë½ÃÀÇ ¾î¶°ÇÑ ¹®Á¦¿¡ ´ëÇÏ¿© º¸ÁõÇÏÁö ¾Ê´Â´Ù.
-.SH "Âü°í"
-detect_obj_init(3), detect_obj_free(3), detect_reset(3), detect_handledata(3), detect_init(3)
+.SH ì €ì
+ê¹€ì •ê· 
+
+.SH ë²„ê·¸ ë¦¬í¬íŠ¸
+<http://oops.org> ì˜ QnA ê²Œì‹œíŒì„ ì´ìš©í•œë‹¤.
+
+.SH "ì°¸ê³ "
+detect_init(3), detect_reset(3)
 
