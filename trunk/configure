@@ -8831,7 +8831,7 @@ _ACEOF
 fi
 
 
-                    ac_config_files="$ac_config_files Makefile src/Makefile"
+                    ac_config_files="$ac_config_files Makefile src/Makefile libchardet.pc"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure

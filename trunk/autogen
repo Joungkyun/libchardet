@@ -3,13 +3,13 @@
 # $Id$
 # require autoconf > 2.59 & automake > 1.8
 
-aclocal --force >& /dev/null && autoconf --force && autoheader --force && libtoolize --force
+aclocal --force >& /dev/null && autoconf --force && autoheader --force # && libtoolize --force
 rm -rf autom4te* *~ aclocal.m4 config.guess config.sub ltmain.sh
 touch install-sh
 
 for i in config.guess config.sub ltmain.sh
 do
-	cp -af /usr/share/libtool/${i} ./
+	cp -af /usr/share/libtool/config/${i} ./
 done
 
 exit 0

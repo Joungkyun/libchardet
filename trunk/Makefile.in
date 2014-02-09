@@ -28,6 +28,8 @@ libs:
 	$(MAKE) -C src
 
 install: install-man
+	$(MKDIR) $(DESTDIR)@libdir@/pkgconfig
+	$(INSTALL) -m644 libchardet.pc $(DESTDIR)@libdir@/pkgconfig
 	$(MAKE) -C src install
 
 install-man:
