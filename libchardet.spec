@@ -2,9 +2,9 @@
 %define _unpackaged_files_terminate_build 0
 
 Summary: Mozilla Universal Chardet library
-Summary(ko): ¸ğÁú¶ó À¯´Ï¹ö¼£ Ä³¸¯ÅÍ¼Â µğÅØÆ® ¶óÀÌºê·¯¸®
+Summary(ko): ëª¨ì§ˆë¼ ìœ ë‹ˆë²„ìƒ¬ ìºë¦­í„°ì…‹ ë””í…íŠ¸ ë¼ì´ë¸ŒëŸ¬ë¦¬
 Name: libchardet
-Version: 1.0.2
+Version: 1.0.3
 Release: 1
 Epoch: 1
 License: MPL
@@ -22,7 +22,7 @@ which detects the charset used to encode data.
 
 %package devel
 Summary: Header and object files for development using libchardet
-Summary(ko): libchardet ¸¦ ÀÌ¿ëÇÏ¿© °³¹ßÇÏ±â À§ÇÑ header ÆÄÀÏ°ú ¸ñÀû ÆÄÀÏµé
+Summary(ko): libchardet ë¥¼ ì´ìš©í•˜ì—¬ ê°œë°œí•˜ê¸° ìœ„í•œ header íŒŒì¼ê³¼ ëª©ì  íŒŒì¼ë“¤
 Group: System Environment/Libraries
 Requires: %{name} libstdc++-devel
 
@@ -65,6 +65,10 @@ for developing programs which use the libchardet libraries.
 %{_mandir}/ko/*
 
 %changelog
+* Mon Feb 10 2014 JoungKyun.Kim <http://oops.org> 1:1.0.3-1
+- add libchardet.pc by Lee ByungYoung <darklin20@gamil.com>
+- fixed comparison on JpCntx.cpp
+
 * Mon Jul  5 2010 JoungKyun.Kim <http://oops.org> 1:1.0.2-1
 - support visibility attribute on gcc4.
 

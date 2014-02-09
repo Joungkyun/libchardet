@@ -5,7 +5,7 @@
 
 #
 AC_PREREQ(2.59)
-AC_INIT([chardet], [1.0.2], [http://oops.org])
+AC_INIT([chardet], [1.0.3], [http://oops.org])
 AC_CONFIG_SRCDIR([src/nsUniversalDetector.h])
 AC_CONFIG_HEADER([chardet-config.h])
 AC_PREFIX_DEFAULT([/usr/local])

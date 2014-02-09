@@ -43,4 +43,4 @@ clean:
 
 distclean: clean
 	-$(RM) -r libtool config.log config.status Makefile $(PROG)-config.h *~
-	-$(RM) -r src/{$(PROG)-config*,*~,Makefile}
+	-$(RM) -r src/{$(PROG)-config*,*~,Makefile} libchardet.pc
