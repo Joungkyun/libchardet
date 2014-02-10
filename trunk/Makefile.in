@@ -71,9 +71,8 @@ DIST_COMMON = README $(am__configure_deps) $(dist_doc_DATA) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/chardet-config.h.in $(srcdir)/chardet-config.in \
 	$(srcdir)/libchardet.pc.in $(top_srcdir)/configure INSTALL \
-	acconfig.h config.guess config.sub install-sh ltmain.sh \
-	tools/config.guess tools/config.sub tools/install-sh \
-	tools/ltmain.sh tools/missing
+	acconfig.h tools/config.guess tools/config.sub \
+	tools/install-sh tools/ltmain.sh tools/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_gcc_visibiliity.m4 \
 	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
