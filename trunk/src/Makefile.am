@@ -63,7 +63,7 @@ noinst_HEADERS = CharDistribution.h \
 				GB2312Freq.tab JISFreq.tab
 
 AM_CFLAGS = -Wall @CFLAGS@
-AM_CXXFLAGS = -Wall -Wno-non-virtual-dtor -nostdinc++ -fno-rtti -fno-exceptions @CFLAGS@
+AM_CXXFLAGS = -Wall -Wno-non-virtual-dtor -nostdinc++ -fno-rtti -fno-exceptions @CPPFLAGS@
 AM_LDFLAGS = -version-info $(SONAME_INFO) @LDFLAGS@ @LIBS@
 
 lib_LTLIBRARIES = libchardet.la

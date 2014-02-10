@@ -50,8 +50,7 @@
 #endif
 
 #if defined _WIN32 || defined __CYGWIN__
-	#include "win95nt.h"
-	#ifdef CHARDET_EXPORTS
+	#ifdef HAVE_DLL_EXPORT
 		#define CHARDET_API __declspec(dllexport)
 	#else
 		#define CHARDET_API __declspec(dllimport)

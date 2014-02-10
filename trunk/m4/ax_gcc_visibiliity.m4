@@ -63,6 +63,7 @@ if test "$GCC" = "yes"; then
 	AX_GCC_VERSION
     if test $GCC_MAJOR_VERSION -ge 4; then
         CFLAGS="$CFLAGS -fvisibility=hidden"
+		CPPFALGS="$CPPFALGS -fvisibility=hidden"
     fi
 fi
 ])
@@ -111,9 +112,27 @@ AC_DEFUN([AX_GL_VISIBILITY],
     AC_MSG_RESULT([$gl_cv_cc_visibility])
     if test $gl_cv_cc_visibility = yes; then
       CFLAGS="$CFLAGS -fvisibility=hidden"
+      CPPFLAGS="$CPPFLAGS -fvisibility=hidden"
       HAVE_VISIBILITY=1
       AC_DEFINE_UNQUOTED([HAVE_VISIBILITY], [$HAVE_VISIBILITY],
         [Define to 1, depending whether the compiler supports simple visibility declarations.])
     fi
   fi
 ])
+
+AC_DEFUN([AX_DLL_EXPORT_CHECK],
+[
+  HAVE_DLL_EXPORT=0
+  AC_MSG_CHECKING([for DLL_EXPORT declarations])
+  echo "$lt_prog_compiler_pic_CXX" | /bin/grep "DLL_EXPORT" > /dev/null 2>&1
+  if test $? -eq 0; then
+    AC_MSG_RESULT([yes]);
+    HAVE_DLL_EXPORT=1
+    LIBS="$LIBS -no-undefined"
+    AC_DEFINE_UNQUOTED([HAVE_DLL_EXPORT], [$HAVE_DLL_EXPORT],
+      [Define to 1, depending whether the compiler DLL_EXPORT declarations.])
+  else
+    AC_MSG_RESULT([no]);
+  fi
+])
+
