@@ -61,6 +61,7 @@ for developing programs which use the libchardet libraries.
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
+%{_libdir}/pkgconfig/chardet.pc
 %{_includedir}/chardet/*.h
 %{_mandir}/man3/*
 %{_mandir}/ko/man3/*
