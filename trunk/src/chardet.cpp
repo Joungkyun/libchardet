@@ -54,11 +54,11 @@ typedef struct Detect_t {
 #include <chardet.h>
 
 CHARDET_API char * detect_version (void) {
-	return LIBCHARDET_VERSION;
+	return (char *) LIBCHARDET_VERSION;
 }
 
 CHARDET_API char * detect_uversion (void) {
-	return LIBCHARDET_UVERSION;
+	return (char *) LIBCHARDET_UVERSION;
 }
 
 CHARDET_API DetectObj * detect_obj_init (void) {

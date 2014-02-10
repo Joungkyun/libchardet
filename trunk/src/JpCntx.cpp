@@ -161,7 +161,7 @@ void JapaneseContextAnalysis::HandleData(const char* aBuf, PRUint32 aLen)
           mDone = PR_TRUE;
           break;
         }
-        mRelSample[jp2CharContext[mLastCharOrder][order]]++;
+        mRelSample[(int)jp2CharContext[mLastCharOrder][order]]++;
       }
       mLastCharOrder = order;
     }
