@@ -17,7 +17,7 @@ $Id$
    libchardet used GNU autoconf and no option except default option of gnu configure.
    And, you can use follow environment variables.
 
-   CFLAGS, CPPFLAGS, DEFS, LIBS, LDFLAGS, CPPFLAGS, and so on.
+   CFLAGS, CXXFLAGS, DEFS, LIBS, LDFLAGS, CPPFLAGS, and so on.
 
 3. make
 
