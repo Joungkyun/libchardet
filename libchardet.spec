@@ -66,7 +66,7 @@ for developing programs which use the libchardet libraries.
 
 %changelog
 * Mon Feb 10 2014 JoungKyun.Kim <http://oops.org> 1:1.0.3-1
-- add libchardet.pc by Lee ByungYoung <darklin20@gamil.com>
+- add chardet.pc by Lee ByungYoung <darklin20@gamil.com>
 - fixed comparison on JpCntx.cpp
 
 * Mon Jul  5 2010 JoungKyun.Kim <http://oops.org> 1:1.0.2-1

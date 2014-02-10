@@ -16290,7 +16290,7 @@ _ACEOF
 fi
 
 
-ac_config_files="$ac_config_files Makefile src/Makefile man/Makefile chardet-config libchardet.pc"
+ac_config_files="$ac_config_files Makefile src/Makefile man/Makefile chardet-config chardet.pc"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -17268,7 +17268,7 @@ do
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
     "man/Makefile") CONFIG_FILES="$CONFIG_FILES man/Makefile" ;;
     "chardet-config") CONFIG_FILES="$CONFIG_FILES chardet-config" ;;
-    "libchardet.pc") CONFIG_FILES="$CONFIG_FILES libchardet.pc" ;;
+    "chardet.pc") CONFIG_FILES="$CONFIG_FILES chardet.pc" ;;
 
   *) { { $as_echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
 $as_echo "$as_me: error: invalid argument: $ac_config_target" >&2;}

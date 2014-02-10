@@ -70,7 +70,7 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(dist_doc_DATA) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/chardet-config.h.in $(srcdir)/chardet-config.in \
-	$(srcdir)/libchardet.pc.in $(top_srcdir)/configure INSTALL \
+	$(srcdir)/chardet.pc.in $(top_srcdir)/configure INSTALL \
 	acconfig.h tools/config.guess tools/config.sub \
 	tools/install-sh tools/ltmain.sh tools/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -84,7 +84,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = chardet-config.h
-CONFIG_CLEAN_FILES = chardet-config libchardet.pc
+CONFIG_CLEAN_FILES = chardet-config chardet.pc
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -294,7 +294,7 @@ SUBDIRS = . src man
 dist_doc_DATA = $(EXTRA_DIST)
 bin_SCRIPTS = chardet-config
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libchardet.pc
+pkgconfig_DATA = chardet.pc
 all: chardet-config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -352,7 +352,7 @@ distclean-hdr:
 	-rm -f chardet-config.h stamp-h1
 chardet-config: $(top_builddir)/config.status $(srcdir)/chardet-config.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
-libchardet.pc: $(top_builddir)/config.status $(srcdir)/libchardet.pc.in
+chardet.pc: $(top_builddir)/config.status $(srcdir)/chardet.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-binSCRIPTS: $(bin_SCRIPTS)
 	@$(NORMAL_INSTALL)

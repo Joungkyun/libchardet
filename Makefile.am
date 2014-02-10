@@ -40,7 +40,7 @@ dist_doc_DATA = $(EXTRA_DIST)
 
 bin_SCRIPTS = chardet-config
 pkgconfigdir=$(libdir)/pkgconfig
-pkgconfig_DATA = libchardet.pc
+pkgconfig_DATA = chardet.pc
 
 DISTCLEANFILES += *.bz2 aclocal.m4 *~
 
