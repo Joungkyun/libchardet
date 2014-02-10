@@ -70,9 +70,10 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(dist_doc_DATA) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/chardet-config.h.in $(srcdir)/chardet-config.in \
-	$(srcdir)/chardet.pc.in $(top_srcdir)/configure INSTALL \
-	acconfig.h tools/config.guess tools/config.sub \
-	tools/install-sh tools/ltmain.sh tools/missing
+	$(srcdir)/chardet.pc.in $(srcdir)/libchardet.spec.in \
+	$(top_srcdir)/configure INSTALL acconfig.h tools/config.guess \
+	tools/config.sub tools/install-sh tools/ltmain.sh \
+	tools/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_gcc_visibiliity.m4 \
 	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
@@ -84,7 +85,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = chardet-config.h
-CONFIG_CLEAN_FILES = chardet-config chardet.pc
+CONFIG_CLEAN_FILES = chardet-config chardet.pc libchardet.spec
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -181,6 +182,7 @@ CXX = @CXX@
 CXXCPP = @CXXCPP@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
+DATE = @DATE@
 DEFS = @DEFS@
 DSYMUTIL = @DSYMUTIL@
 DUMPBIN = @DUMPBIN@
@@ -218,6 +220,7 @@ OTOOL = @OTOOL@
 OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
+PACKAGE_DATE = @PACKAGE_DATE@
 PACKAGE_NAME = @PACKAGE_NAME@
 PACKAGE_STRING = @PACKAGE_STRING@
 PACKAGE_TARNAME = @PACKAGE_TARNAME@
@@ -353,6 +356,8 @@ distclean-hdr:
 chardet-config: $(top_builddir)/config.status $(srcdir)/chardet-config.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 chardet.pc: $(top_builddir)/config.status $(srcdir)/chardet.pc.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
+libchardet.spec: $(top_builddir)/config.status $(srcdir)/libchardet.spec.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-binSCRIPTS: $(bin_SCRIPTS)
 	@$(NORMAL_INSTALL)

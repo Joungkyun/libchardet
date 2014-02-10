@@ -3,14 +3,14 @@
 
 Summary: Mozilla Universal Chardet library
 Summary(ko): 모질라 유니버샬 캐릭터셋 디텍트 라이브러리
-Name: libchardet
-Version: 1.0.3
+Name: @PACKAGE_NAME@
+Version: @PACKAGE_VERSION@
 Release: 1
 Epoch: 1
 License: MPL
 Group: System Environment/Libraries
-Source0: ftp://mirror.oops.org/pub/oops/%{name}/%{name}-%{version}.tar.bz2
-URL: http://devel.oops.org
+Source0: http://mirror.oops.org/pub/oops/%{name}/%{name}-%{version}.tar.bz2
+URL: http://oops.org
 BuildRequires: libstdc++-devel
 Requires: libstdc++
 
@@ -24,7 +24,7 @@ which detects the charset used to encode data.
 Summary: Header and object files for development using libchardet
 Summary(ko): libchardet 를 이용하여 개발하기 위한 header 파일과 목적 파일들
 Group: System Environment/Libraries
-Requires: %{name} libstdc++-devel
+Requires: %{name} = %{epoch}:%{version}-%{release}, libstdc++-devel
 
 %description devel
 The libchardet-devel package contains the header and object files necessary
@@ -62,19 +62,9 @@ for developing programs which use the libchardet libraries.
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_includedir}/chardet/*.h
-%{_mandir}/ko/*
+%{_mandir}/man3/*
+%{_mandir}/ko/man3/*
 
 %changelog
-* Mon Feb 10 2014 JoungKyun.Kim <http://oops.org> 1:1.0.3-1
-- add chardet.pc by Lee ByungYoung <darklin20@gamil.com>
-- fixed comparison on JpCntx.cpp
-
-* Mon Jul  5 2010 JoungKyun.Kim <http://oops.org> 1:1.0.2-1
-- support visibility attribute on gcc4.
-
-* Mon Feb 23 2009 JoungKyun.Kim <http://oops.org> 1:1.0.1-1
-- update 1.0.1
-
-* Fri Feb 20 2009 JoungKyun.Kim <http://oops.org> 1:1.0.0-1
-- first packing
-
+* @PACKAGE_DATE@ JoungKyun.Kim <http://oops.org> 1:@PACKAGE_VERSION@-1
+- packaged @PACKAGE_VERSION@
