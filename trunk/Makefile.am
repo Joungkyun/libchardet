@@ -30,7 +30,6 @@
 # $Id$
 
 DISTCLEANFILES =
-DISTCLEANDIRS =
 EXTRA_DIST = Changelog LICENSE libchardet.spec
 
 ACLOCAL_AMFLAGS = -I m4
@@ -44,8 +43,9 @@ pkgconfigdir=$(libdir)/pkgconfig
 pkgconfig_DATA = libchardet.pc
 
 DISTCLEANFILES += *.bz2 aclocal.m4 *~
-DISTCLEANDIRS += autom4te.cache z
 
 test-install:
 	$(MAKE) DESTDIR=`pwd`/z install
 
+distclean-local:
+	rm -rf autom4te.cache z

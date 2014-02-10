@@ -288,7 +288,6 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 DISTCLEANFILES = *.bz2 aclocal.m4 *~
-DISTCLEANDIRS = autom4te.cache z
 EXTRA_DIST = Changelog LICENSE libchardet.spec
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = . src man
@@ -791,7 +790,7 @@ distclean: distclean-recursive
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -f Makefile
 distclean-am: clean-am distclean-generic distclean-hdr \
-	distclean-libtool distclean-tags
+	distclean-libtool distclean-local distclean-tags
 
 dvi: dvi-recursive
 
@@ -862,10 +861,10 @@ uninstall-am: uninstall-binSCRIPTS uninstall-dist_docDATA \
 	clean-libtool ctags ctags-recursive dist dist-all dist-bzip2 \
 	dist-gzip dist-lzma dist-shar dist-tarZ dist-xz dist-zip \
 	distcheck distclean distclean-generic distclean-hdr \
-	distclean-libtool distclean-tags distcleancheck distdir \
-	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-binSCRIPTS install-data \
-	install-data-am install-dist_docDATA install-dvi \
+	distclean-libtool distclean-local distclean-tags \
+	distcleancheck distdir distuninstallcheck dvi dvi-am html \
+	html-am info info-am install install-am install-binSCRIPTS \
+	install-data install-data-am install-dist_docDATA install-dvi \
 	install-dvi-am install-exec install-exec-am install-html \
 	install-html-am install-info install-info-am install-man \
 	install-pdf install-pdf-am install-pkgconfigDATA install-ps \
@@ -879,6 +878,9 @@ uninstall-am: uninstall-binSCRIPTS uninstall-dist_docDATA \
 
 test-install:
 	$(MAKE) DESTDIR=`pwd`/z install
+
+distclean-local:
+	rm -rf autom4te.cache z
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
