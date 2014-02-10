@@ -68,6 +68,7 @@ AC_HEADER_TIME
 # Checks for library functions.
 AC_FUNC_MALLOC
 AC_FUNC_STAT
+AX_DLL_EXPORT_CHECK
 
 AC_CONFIG_FILES([
 	Makefile
