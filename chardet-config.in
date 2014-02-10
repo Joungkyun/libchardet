@@ -7,7 +7,7 @@ prefix="@prefix@"
 exec_prefix="@exec_prefix@"
 exec_prefix_set=no
 includedir="@includedir@"
-la_file="@libdir@/lib@prog@.la"
+la_file="@libdir@/lib@PROG@.la"
 
 usage="\
 Usage: chardet-config [--prefix] [--exec-prefix] [--version] [--libs] [--defs] [--cflags]"
@@ -33,17 +33,17 @@ while test $# -gt 0; do
 			fi
 			;;
 		--prefix)
-			echo -n " $prefix"
+			echo -n "$prefix"
 			;;
 		--exec-prefix=*)
 			exec_prefix="$optarg"
 			exec_prefix_set=yes
 			;;
 		--exec-prefix)
-			echo -n " $exec_prefix"
+			echo -n "$exec_prefix"
 			;;
 		--version)
-			echo "@VERSION@"
+			echo "@PACKAGE_VERSION@"
 			exit 0
 			;;
 		--cflags)
@@ -51,10 +51,10 @@ while test $# -gt 0; do
 			;;
 		--defs)
 			includes="-I${includedir}"
-			echo -n " -DHAVE_CONFIG_H $includes/chardet"
+			echo -n " -DHAVE_CONFIG_H $includes/@PROG@"
 			;;
 		--libs)
-			echo -n " -L${libdir} -l@prog@ ${dependency_libs}"
+			echo -n " -L${libdir} -l@PROG@ ${dependency_libs}"
 			;;
 		*)
 			echo "${usage}" 1>&2

@@ -6,6 +6,7 @@ $Id$
 
 2014/02/10 KST
 	- add libchardet.pc by Lee ByungYoung <darklin20@gamil.com>
+	- applied automake
 
 2012/08/14 KST
 	- fixed comparison on JpCntx.cpp

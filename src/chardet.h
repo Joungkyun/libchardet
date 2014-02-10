@@ -32,6 +32,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+/*
 #if defined _WIN32 || defined __CYGWIN__
 	#define CHARDET_API
 #else
@@ -41,9 +42,26 @@
 		#define CHARDET_API
 	#endif
 #endif
+*/
+
 
 #ifdef HAVE_CONFIG_H
 #include <chardet-config.h>
+#endif
+
+#if defined _WIN32 || defined __CYGWIN__
+	#include "win95nt.h"
+	#ifdef CHARDET_EXPORTS
+		#define CHARDET_API __declspec(dllexport)
+	#else
+		#define CHARDET_API __declspec(dllimport)
+	#endif
+#else
+	#ifdef HAVE_VISIBILITY
+		#define CHARDET_API __attribute__ ((visibility("default")))
+	#else
+		#define CHARDET_API
+	#endif
 #endif
 
 #include <version.h>
