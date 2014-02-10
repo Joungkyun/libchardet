@@ -4,19 +4,19 @@
 .\" 2011-05-02 JoungKyun Kim <htt://oops.org>
 .\" $Id$
 
-.SH ÀÌ¸§
-chardet_obj_free - chardet_obj_init ÀÇ return value memory ÇØÁ¦
-.SH »ç¿ë¹ı
+.SH ì´ë¦„
+chardet_obj_free - chardet_obj_init ì˜ return value memory í•´ì œ
+.SH ì‚¬ìš©ë²•
 .I #include <chardet.h>
 .br
 .I void chardet_obj_free (DetectObj **);
-.SH ¼³¸í
-chardet_obj_free() ÇÔ¼ö´Â chardet_obj_init API ¿¡ ÀÇÇÏ¿© ¸Ş¸ğ¸®°¡ ÇÒ´çµÉ DetectOBJ
-structure ÀÇ ¸Ş¸ğ¸®¸¦ ÇØÁ¦ ÇÑ´Ù.
-.SH ¹İÈ¯°ª
-¾øÀ½
+.SH ì„¤ëª…
+chardet_obj_free() í•¨ìˆ˜ëŠ” chardet_obj_init API ì— ì˜í•˜ì—¬ ë©”ëª¨ë¦¬ê°€ í• ë‹¹ë  DetectOBJ
+structure ì˜ ë©”ëª¨ë¦¬ë¥¼ í•´ì œ í•œë‹¤.
+.SH ë°˜í™˜ê°’
+ì—†ìŒ
 .PP
-.SH ¿¹Á¦
+.SH ì˜ˆì œ
 .nf
 #include <chardet.h>
 
@@ -28,7 +28,7 @@ int main (void) {
 		return CHARDET_MEM_ALLOCATED_FAIL;
 	}
 
-	switch (detect ("¾È³çÇÏ¼¼¿ä", &obj)) {
+	switch (detect ("ì•ˆë…•í•˜ì„¸ìš”", &obj)) {
 		case CHARDET_OUT_OF_MEMORY :
 			fprintf (stderr, "On handle processing, occured out of memory\\n");
 			detect_obj_free (&obj);
@@ -46,14 +46,14 @@ int main (void) {
     return 0;
 }
 .fi
-.SH ÀúÀÚ
-±èÁ¤±Õ
-.SH ¹ö±× ¸®Æ÷Æ®
-<http://oops.org> ÀÇ QnA °Ô½ÃÆÇÀ» ÀÌ¿ëÇÑ´Ù.
-.SH ÀúÀÛ±Ç
+.SH ì €ì
+ê¹€ì •ê· 
+.SH ë²„ê·¸ ë¦¬í¬íŠ¸
+<http://oops.org> ì˜ QnA ê²Œì‹œíŒì„ ì´ìš©í•œë‹¤.
+.SH ì €ì‘ê¶Œ
 Copyright (c) 2009 OOPS Development Organization
 
-ÀÌ ÇÁ·Î±×·¥Àº MPL/GPL2/LGPL2.1 À» µû¸£¸ç, »ç¿ë½ÃÀÇ ¾î¶°ÇÑ ¹®Á¦¿¡ ´ëÇÏ¿© º¸ÁõÇÏÁö ¾Ê´Â´Ù.
-.SH "Âü°í"
+ì´ í”„ë¡œê·¸ë¨ì€ MPL/GPL2/LGPL2.1 ì„ ë”°ë¥´ë©°, ì‚¬ìš©ì‹œì˜ ì–´ë– í•œ ë¬¸ì œì— ëŒ€í•˜ì—¬ ë³´ì¦í•˜ì§€ ì•ŠëŠ”ë‹¤.
+.SH "ì°¸ê³ "
 detect_obj_init(3)
 

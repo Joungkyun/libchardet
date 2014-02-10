@@ -4,17 +4,17 @@
 .\" 2011-05-02 JoungKyun Kim <htt://oops.org>
 .\" $Id$
 
-.SH ÀÌ¸§
-detect_obj_init - libchardet ÀÇ °á°ú °ª structure ÃÊ±âÈ­
-.SH »ç¿ë¹ı
+.SH ì´ë¦„
+detect_obj_init - libchardet ì˜ ê²°ê³¼ ê°’ structure ì´ˆê¸°í™”
+.SH ì‚¬ìš©ë²•
 .I #include <chardet.h>
 .br
 .I DetectObj chardet_obj_init (void);
-.SH ¼³¸í
-chardet_obj_init() ÇÔ¼ö´Â chardet API ¶Ç´Â chardet_handledata API ÀÇ °á°ú °ªÀ»
-¹ŞÀ» DetectObj structure¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
-.SH ¹İÈ¯°ª
-DetectObject struct ¸¦ ¹İÈ¯ÇÑ´Ù. ¹İÈ¯µÈ °ªÀº chardet_obj_free API ¸¦ ÀÌ¿ëÇÏ¿© ¸Ş¸ğ¸® ÇØÁ¦¸¦ ÇØ ÁÖ¾î¾ß ÇÑ´Ù.
+.SH ì„¤ëª…
+chardet_obj_init() í•¨ìˆ˜ëŠ” chardet API ë˜ëŠ” chardet_handledata API ì˜ ê²°ê³¼ ê°’ì„
+ë°›ì„ DetectObj structureë¥¼ ì´ˆê¸°í™” í•œë‹¤.
+.SH ë°˜í™˜ê°’
+DetectObject struct ë¥¼ ë°˜í™˜í•œë‹¤. ë°˜í™˜ëœ ê°’ì€ chardet_obj_free API ë¥¼ ì´ìš©í•˜ì—¬ ë©”ëª¨ë¦¬ í•´ì œë¥¼ í•´ ì£¼ì–´ì•¼ í•œë‹¤.
 .nf
 
 	typedef struct DetectObject {
@@ -22,7 +22,7 @@ DetectObject struct ¸¦ ¹İÈ¯ÇÑ´Ù. ¹İÈ¯µÈ °ªÀº chardet_obj_free API ¸¦ ÀÌ¿ëÇÏ¿© ¸Ş
 		float confidence;
 	} DetectObj;
 .PP
-.SH ¿¹Á¦
+.SH ì˜ˆì œ
 .nf
 #include <chardet.h>
 
@@ -34,7 +34,7 @@ int main (void) {
 		return CHARDET_MEM_ALLOCATED_FAIL;
 	}
 
-	switch (detect ("¾È³çÇÏ¼¼¿ä", &obj)) {
+	switch (detect ("ì•ˆë…•í•˜ì„¸ìš”", &obj)) {
 		case CHARDET_OUT_OF_MEMORY :
 			fprintf (stderr, "On handle processing, occured out of memory\\n");
 			detect_obj_free (&obj);
@@ -52,14 +52,14 @@ int main (void) {
     return 0;
 }
 .fi
-.SH ÀúÀÚ
-±èÁ¤±Õ
-.SH ¹ö±× ¸®Æ÷Æ®
-<http://oops.org> ÀÇ QnA °Ô½ÃÆÇÀ» ÀÌ¿ëÇÑ´Ù.
-.SH ÀúÀÛ±Ç
+.SH ì €ì
+ê¹€ì •ê· 
+.SH ë²„ê·¸ ë¦¬í¬íŠ¸
+<http://oops.org> ì˜ QnA ê²Œì‹œíŒì„ ì´ìš©í•œë‹¤.
+.SH ì €ì‘ê¶Œ
 Copyright (c) 2009 OOPS Development Organization
 
-ÀÌ ÇÁ·Î±×·¥Àº MPL/GPL2/LGPL2.1 À» µû¸£¸ç, »ç¿ë½ÃÀÇ ¾î¶°ÇÑ ¹®Á¦¿¡ ´ëÇÏ¿© º¸ÁõÇÏÁö ¾Ê´Â´Ù.
-.SH "Âü°í"
+ì´ í”„ë¡œê·¸ë¨ì€ MPL/GPL2/LGPL2.1 ì„ ë”°ë¥´ë©°, ì‚¬ìš©ì‹œì˜ ì–´ë– í•œ ë¬¸ì œì— ëŒ€í•˜ì—¬ ë³´ì¦í•˜ì§€ ì•ŠëŠ”ë‹¤.
+.SH "ì°¸ê³ "
 detect_obj_free(3), detect(3), detect_handledata(3)
 
