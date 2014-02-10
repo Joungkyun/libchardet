@@ -43,15 +43,18 @@ AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 AC_PROG_RANLIB
 
-AC_PATH_PROG(STRIP, strip)
-if test ! -f "$ac_cv_path_STRIP"; then
-	AC_MSG_ERROR(Can't not found strip)
-fi
-
 AC_PATH_PROG(PERL, perl)
 if test ! -f "$ac_cv_path_PERL"; then
 	AC_MSG_ERROR(Can't not found perl)
 fi
+
+AC_PATH_PROG(DATE, date)
+if test ! -f "$ac_cv_path_DATE"; then
+	AC_MSG_ERROR(Can't not found date)
+fi
+
+AC_SUBST(PACKAGE_DATE)
+PACKAGE_DATE=$(LANG= $DATE +"%a %b %d %Y")
 
 # Checks for header files.
 AC_HEADER_STDC
@@ -66,5 +69,12 @@ AC_HEADER_TIME
 AC_FUNC_MALLOC
 AC_FUNC_STAT
 
-AC_CONFIG_FILES([Makefile src/Makefile man/Makefile chardet-config chardet.pc])
+AC_CONFIG_FILES([
+	Makefile
+	src/Makefile
+	man/Makefile
+	chardet-config
+	chardet.pc
+	libchardet.spec
+])
 AC_OUTPUT
