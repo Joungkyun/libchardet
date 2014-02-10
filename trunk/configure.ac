@@ -66,5 +66,5 @@ AC_HEADER_TIME
 AC_FUNC_MALLOC
 AC_FUNC_STAT
 
-AC_CONFIG_FILES([Makefile src/Makefile man/Makefile chardet-config libchardet.pc])
+AC_CONFIG_FILES([Makefile src/Makefile man/Makefile chardet-config chardet.pc])
 AC_OUTPUT

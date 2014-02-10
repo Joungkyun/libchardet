@@ -5,7 +5,7 @@ $Id$
 *** 1.0.3
 
 2014/02/10 KST
-	- add libchardet.pc by Lee ByungYoung <darklin20@gamil.com>
+	- add chardet.pc by Lee ByungYoung <darklin20@gamil.com>
 	- applied automake
 
 2012/08/14 KST
