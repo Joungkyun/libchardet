@@ -1,0 +1,81 @@
+.TH detect_init 3 2011-05-02 "libchardet manuals"
+.\" Process with
+.\" nroff -man detect_init.3
+.\" 2011-05-02 JoungKyun Kim <htt://oops.org>
+.\" $Id$
+
+.SH NAME
+detect_init - initialize Detect structure
+
+.SH SNOPSIS
+.I #include <chardet.h>
+.br
+.I Detect * chardet_init (void);
+
+.SH DESCRIPTION
+initialize
+.B Detect
+structure.
+
+.SH "RETURN VALUE"
+Returns
+.B NULL
+on false and returns
+.B Detect
+structure on success.
+.nf
+
+	typedef struct Detect_t {
+		Detector *detect;
+	} Detect;
+.PP
+
+.SH EXAMPLE
+.nf
+#include <chardet.h>
+
+int main (void) {
+	Detect    * d;
+	DetectObj * obj;
+
+	if ( (d = detect_init ()) == NULL ) {
+		fprintf (stderr, "chardet handle initialize failed\\n");
+		return CHARDET_MEM_ALLOCATED_FAIL;
+	}
+
+	detect_reset (&d);
+
+	if ( (obj = detect_obj_init ()) == NULL ) {
+		fprintf (stderr, "Memory Allocation failed\\n");
+		return CHARDET_MEM_ALLOCATED_FAIL;
+	}
+
+	switch (detect_handledata (&d, "¾È³çÇÏ¼¼¿ä", &obj)) {
+		case CHARDET_OUT_OF_MEMORY :
+			fprintf (stderr, "On handle processing, occured out of memory\\n");
+			detect_obj_free (&obj);
+			return CHARDET_OUT_OF_MEMORY;
+		case CHARDET_NULL_OBJECT :
+			fprintf (stderr,
+					"2st argument of chardet() is must memory allocation "
+					"with detect_obj_init API\\n");
+			return CHARDET_NULL_OBJECT;
+	}
+
+	printf ("encoding: %s, confidence: %f\\n", obj->encoding, obj->confidence);
+	detect_obj_free (&obj);
+	detect_destroy (&d);
+
+    return 0;
+}
+.fi
+
+.SH AUTHORS
+JoungKyun.Kim <http://oops.org>
+
+.SH "BUG REPORTS"
+Use QnA board on http://oops.org
+
+.SH "SEE ALSO"
+detect_obj_init(3), detect_obj_free(3), detect_reset(3), detect_handledata(3), detect_destroy(3)
+
