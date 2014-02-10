@@ -1,0 +1,70 @@
+.TH detect_destroy 3 2011-05-02 "libchardet manuals"
+.\" Process with
+.\" nroff -man detect_destroy.3
+.\" 2011-05-02 JoungKyun Kim <htt://oops.org>
+.\" $Id$
+
+.SH NAME
+detect_destroy \- free Detector structure
+
+.SH SYNOPSIS
+.B "#include <chardet.h>"
+.sp
+.BI "void detect_destroy (Detect ** handle);"
+
+.SH DESCRIPTION
+Free resource that allocated by
+.BI detect_init
+api.
+
+.SH "RETURN VALUE"
+void
+
+.SH EXAMPLE
+.nf
+#include <chardet.h>
+
+int main (void) {
+	Detect    * d;
+	DetectObj * obj;
+
+	if ( (d = detect_init ()) == NULL ) {
+		fprintf (stderr, "chardet handle initialize failed\\n");
+		return CHARDET_MEM_ALLOCATED_FAIL;
+	}
+
+	detect_reset (&d);
+
+	if ( (obj = detect_obj_init ()) == NULL ) {
+		fprintf (stderr, "Memory Allocation failed\\n");
+		return CHARDET_MEM_ALLOCATED_FAIL;
+	}
+
+	switch (detect_handledata (&d, "안녕하세요", &obj)) {
+		case CHARDET_OUT_OF_MEMORY :
+			fprintf (stderr, "On handle processing, occured out of memory\\n");
+			detect_obj_free (&obj);
+			return CHARDET_OUT_OF_MEMORY;
+		case CHARDET_NULL_OBJECT :
+			fprintf (stderr,
+					"3st argument of chardet_handledata() is must memory allocation "
+					"with detect_obj_init API\\n");
+			return CHARDET_NULL_OBJECT;
+	}
+
+	printf ("encoding: %s, confidence: %f\\n", obj->encoding, obj->confidence);
+	detect_obj_free (&obj);
+	detect_destroy (&d);
+
+    return 0;
+}
+.fi
+
+.SH AUTHORS
+JoungKyun.Kim <http://oops.org>
+
+.SH "BUG REPORTS"
+Use QnA board on http://oops.org
+
+.SH "SEE ALSO"
+detect_init(3), detect_reset(3)
