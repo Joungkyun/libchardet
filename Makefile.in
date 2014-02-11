@@ -258,7 +258,7 @@ build_vendor = @build_vendor@
 builddir = @builddir@
 datadir = @datadir@
 datarootdir = @datarootdir@
-docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+docdir = @docdir@
 dvidir = @dvidir@
 exec_prefix = @exec_prefix@
 host = @host@
@@ -294,7 +294,9 @@ DISTCLEANFILES = *.bz2 aclocal.m4 *~
 EXTRA_DIST = Changelog LICENSE libchardet.spec
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = . src man
-dist_doc_DATA = $(EXTRA_DIST)
+
+#docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+dist_doc_DATA = Changelog LICENSE
 bin_SCRIPTS = chardet-config
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = chardet.pc
@@ -882,10 +884,10 @@ uninstall-am: uninstall-binSCRIPTS uninstall-dist_docDATA \
 
 
 test-install:
-	$(MAKE) DESTDIR=`pwd`/z install
+	$(MAKE) DESTDIR=`pwd`/test-install install
 
 distclean-local:
-	rm -rf autom4te.cache z
+	rm -rf autom4te.cache test-install
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

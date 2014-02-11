@@ -35,8 +35,8 @@ EXTRA_DIST = Changelog LICENSE libchardet.spec
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = . src man
 
-docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
-dist_doc_DATA = $(EXTRA_DIST)
+#docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+dist_doc_DATA = Changelog LICENSE
 
 bin_SCRIPTS = chardet-config
 pkgconfigdir=$(libdir)/pkgconfig
@@ -45,7 +45,7 @@ pkgconfig_DATA = chardet.pc
 DISTCLEANFILES += *.bz2 aclocal.m4 *~
 
 test-install:
-	$(MAKE) DESTDIR=`pwd`/z install
+	$(MAKE) DESTDIR=`pwd`/test-install install
 
 distclean-local:
-	rm -rf autom4te.cache z
+	rm -rf autom4te.cache test-install
