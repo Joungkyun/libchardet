@@ -118,21 +118,31 @@ AC_DEFUN([AX_GL_VISIBILITY],
         [Define to 1, depending whether the compiler supports simple visibility declarations.])
     fi
   fi
+
+  # DLL_EXPORT check
+  AX_DLL_EXPORT_CHECK
 ])
 
 AC_DEFUN([AX_DLL_EXPORT_CHECK],
 [
   HAVE_DLL_EXPORT=0
   AC_MSG_CHECKING([for DLL_EXPORT declarations])
-  echo "$lt_prog_compiler_pic_CXX" | /bin/grep "DLL_EXPORT" > /dev/null 2>&1
-  if test $? -eq 0; then
-    AC_MSG_RESULT([yes]);
-    HAVE_DLL_EXPORT=1
-    LIBS="$LIBS -no-undefined"
-    AC_DEFINE_UNQUOTED([HAVE_DLL_EXPORT], [$HAVE_DLL_EXPORT],
-      [Define to 1, depending whether the compiler DLL_EXPORT declarations.])
-  else
-    AC_MSG_RESULT([no]);
-  fi
+
+  case $host_os in
+    mingw* | cygwin* | pw32* | os2* | cegcc*)
+      HAVE_DLL_EXPORT=1
+      case $host_os in
+        cygwin*)
+          LIBS="$LIBS -no-undefined"
+          ;;
+      esac
+      AC_MSG_RESULT([yes])
+      AC_DEFINE_UNQUOTED([HAVE_DLL_EXPORT], [$HAVE_DLL_EXPORT],
+        [Define to 1, depending whether the compiler DLL_EXPORT declarations.])
+      ;;
+    *)
+      AC_MSG_RESULT([no])
+      ;;
+  esac
 ])
 
