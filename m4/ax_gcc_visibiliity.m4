@@ -125,7 +125,7 @@ AC_DEFUN([AX_GL_VISIBILITY],
   AX_DLL_EXPORT_CHECK
 ])
 
-AC_SUBST(CYGWIN_DYN_LIB)
+AC_SUBST(MINGW_CYGWIN_DYNLIB)
 
 AC_DEFUN([AX_DLL_EXPORT_CHECK],
 [
@@ -136,11 +136,7 @@ AC_DEFUN([AX_DLL_EXPORT_CHECK],
   case $host_os in
     mingw* | cygwin* | pw32* | os2* | cegcc*)
       HAVE_DLL_EXPORT=1
-      case $host_os in
-        cygwin*)
-          CYGWIN_DYN_LIB="-no-undefined"
-          ;;
-      esac
+      MINGW_CYGWIN_DYNLIB="-no-undefined"
       AC_MSG_RESULT([yes])
       AC_DEFINE_UNQUOTED([HAVE_DLL_EXPORT], [$HAVE_DLL_EXPORT],
         [Define to 1, depending whether the compiler DLL_EXPORT declarations.])
