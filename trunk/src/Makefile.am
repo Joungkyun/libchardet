@@ -64,7 +64,7 @@ noinst_HEADERS = CharDistribution.h \
 
 AM_CFLAGS = -Wall @CFLAGS@
 AM_CXXFLAGS = -Wall -Wno-non-virtual-dtor -nostdinc++ -fno-rtti -fno-exceptions @CPPFLAGS@
-AM_LDFLAGS = -version-info $(SONAME_INFO) @LDFLAGS@ @LIBS@ @CYGWIN_DYN_LIB@
+AM_LDFLAGS = -version-info $(SONAME_INFO) @LDFLAGS@ @LIBS@ @MINGW_CYGWIN_DYNLIB@
 
 lib_LTLIBRARIES = libchardet.la
 libchardet_la_SOURCES = CharDistribution.cpp JpCntx.cpp LangBulgarianModel.cpp \

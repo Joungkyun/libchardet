@@ -902,7 +902,7 @@ PACKAGE_TARNAME
 PACKAGE_NAME
 PATH_SEPARATOR
 SHELL
-CYGWIN_DYN_LIB
+MINGW_CYGWIN_DYNLIB
 GCC_PATCH_VERSION
 GCC_MINOR_VERSION
 GCC_MAJOR_VERSION'
@@ -14931,11 +14931,7 @@ $as_echo_n "checking for DLL_EXPORT declarations... " >&6; }
   case $host_os in
     mingw* | cygwin* | pw32* | os2* | cegcc*)
       HAVE_DLL_EXPORT=1
-      case $host_os in
-        cygwin*)
-          CYGWIN_DYN_LIB="-no-undefined"
-          ;;
-      esac
+      MINGW_CYGWIN_DYNLIB="-no-undefined"
       { $as_echo "$as_me:$LINENO: result: yes" >&5
 $as_echo "yes" >&6; }
 
