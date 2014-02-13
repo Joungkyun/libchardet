@@ -4,6 +4,9 @@ $Id$
 
 *** 1.0.4
 
+2014/02/14 KST
+	- fixed duplicated path on chardet.pc
+
 2014/02/13 KST
 	- support windows native library with MinGW
 	- support Code::Blocks project
