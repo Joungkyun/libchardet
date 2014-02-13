@@ -3,6 +3,11 @@ Mozilla's Universal Charset Detector C/C++ library
 $Id$
 
 *** 1.0.4
+
+2014/02/13 KST
+	- support windows native library with MinGW
+	- support Code::Blocks project
+
 2014/02/11 KST
 	- fixed build error and shared library on cygwin
 
