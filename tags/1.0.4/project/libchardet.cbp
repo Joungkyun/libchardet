@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="libchardet" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../MingW/bin/Debug/libchardet" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../MingW/obj/Debug/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DHAVE_DLL_EXPORT" />
+					<Add directory="." />
+					<Add directory="../src" />
+					<Add directory="../include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../MingW/bin/Release/libchardet" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../MingW/obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DHAVE_DLL_EXPORT" />
+					<Add directory="." />
+					<Add directory="../src" />
+					<Add directory="../include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../include/nscore.h" />
+		<Unit filename="../include/prmem.h" />
+		<Unit filename="../include/version.h" />
+		<Unit filename="../src/Big5Freq.tab" />
+		<Unit filename="../src/CharDistribution.cpp" />
+		<Unit filename="../src/CharDistribution.h" />
+		<Unit filename="../src/EUCKRFreq.tab" />
+		<Unit filename="../src/EUCTWFreq.tab" />
+		<Unit filename="../src/GB2312Freq.tab" />
+		<Unit filename="../src/JISFreq.tab" />
+		<Unit filename="../src/JpCntx.cpp" />
+		<Unit filename="../src/JpCntx.h" />
+		<Unit filename="../src/LangBulgarianModel.cpp" />
+		<Unit filename="../src/LangCyrillicModel.cpp" />
+		<Unit filename="../src/LangGreekModel.cpp" />
+		<Unit filename="../src/LangHebrewModel.cpp" />
+		<Unit filename="../src/LangHungarianModel.cpp" />
+		<Unit filename="../src/LangThaiModel.cpp" />
+		<Unit filename="../src/chardet.cpp" />
+		<Unit filename="../src/chardet.h" />
+		<Unit filename="../src/nsBig5Prober.cpp" />
+		<Unit filename="../src/nsBig5Prober.h" />
+		<Unit filename="../src/nsCharSetProber.cpp" />
+		<Unit filename="../src/nsCharSetProber.h" />
+		<Unit filename="../src/nsCodingStateMachine.h" />
+		<Unit filename="../src/nsEUCJPProber.cpp" />
+		<Unit filename="../src/nsEUCJPProber.h" />
+		<Unit filename="../src/nsEUCKRProber.cpp" />
+		<Unit filename="../src/nsEUCKRProber.h" />
+		<Unit filename="../src/nsEUCTWProber.cpp" />
+		<Unit filename="../src/nsEUCTWProber.h" />
+		<Unit filename="../src/nsEscCharsetProber.cpp" />
+		<Unit filename="../src/nsEscCharsetProber.h" />
+		<Unit filename="../src/nsEscSM.cpp" />
+		<Unit filename="../src/nsGB2312Prober.cpp" />
+		<Unit filename="../src/nsGB2312Prober.h" />
+		<Unit filename="../src/nsHebrewProber.cpp" />
+		<Unit filename="../src/nsHebrewProber.h" />
+		<Unit filename="../src/nsLatin1Prober.cpp" />
+		<Unit filename="../src/nsLatin1Prober.h" />
+		<Unit filename="../src/nsMBCSGroupProber.cpp" />
+		<Unit filename="../src/nsMBCSGroupProber.h" />
+		<Unit filename="../src/nsMBCSSM.cpp" />
+		<Unit filename="../src/nsPkgInt.h" />
+		<Unit filename="../src/nsSBCSGroupProber.cpp" />
+		<Unit filename="../src/nsSBCSGroupProber.h" />
+		<Unit filename="../src/nsSBCharSetProber.cpp" />
+		<Unit filename="../src/nsSBCharSetProber.h" />
+		<Unit filename="../src/nsSJISProber.cpp" />
+		<Unit filename="../src/nsSJISProber.h" />
+		<Unit filename="../src/nsUTF8Prober.cpp" />
+		<Unit filename="../src/nsUTF8Prober.h" />
+		<Unit filename="../src/nsUniversalDetector.cpp" />
+		<Unit filename="../src/nsUniversalDetector.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<editor_config active="1" use_tabs="1" tab_indents="1" tab_width="4" indent="4" eol_mode="2" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

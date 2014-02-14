@@ -1,0 +1,112 @@
+.TH detect 3 2011-05-02 "libchardet manuals"
+.\" Process with
+.\" nroff -man detect.3
+.\" 2011-05-02 JoungKyun Kim <htt://oops.org>
+.\" $Id$
+
+.SH 이름
+detect \- 문자열의 문자셋과 정확도를 측정
+
+.SH 사용법
+.B "#include <chardet.h>"
+.sp
+.BI "short chardet (char * inbuf, DetectObj ** outbuf);"
+
+.SH 설명
+.B inbuf
+의 문자셋과 정확도를
+.B outbuf에 저장한다.
+
+.TP
+.B inbuf
+.br
+문자셋과 정확도를 측정할 입력 문자열
+
+.TP
+.B outbuf
+.br
+.B inbuf
+의 문자셋과 정확도를 구하여 저장을 한다.
+.B outbuf
+의 구조는 다음과 같다.
+
+.nf
+	typedef struct DetectObject {
+		char * encoding;
+		float confidence;
+	} DetectObj;
+.fi
+
+.B outbuf는
+.BI detect_obj_init
+api를 이용하여 초기화를 한 후에
+.BI detect
+api로 넘겨줘야 한다.
+
+.SH 반환값
+경우에 따라 아래의 상태를 반환한다.
+
+.TP
+.B CHARDET_SUCCESS
+.br
+성공
+
+.TP
+.B CHARDET_NO_RESULT
+.br
+탐지하지 못했을 경우
+
+.TP
+.B CHARDET_NULL_OBJECT
+.br
+.B outbuf
+을
+.BI chardet_obj_init
+api를 이용하여 메모리 할당을 하지 않았을 경우.
+
+.TP
+.B CHARDET_OUT_OF_MEMORY
+.br
+내부 API에서
+.B "out of memory"
+가 발생했을 경우
+
+.SH 예제
+.nf
+#include <chardet.h>
+
+int main (void) {
+	DetectObj *obj;
+
+	if ( (obj = detect_obj_init ()) == NULL ) {
+		fprintf (stderr, "Memory Allocation failed\\n");
+		return CHARDET_MEM_ALLOCATED_FAIL;
+	}
+
+	switch (detect ("안녕하세요", &obj)) {
+		case CHARDET_OUT_OF_MEMORY :
+			fprintf (stderr, "On handle processing, occured out of memory\\n");
+			detect_obj_free (&obj);
+			return CHARDET_OUT_OF_MEMORY;
+		case CHARDET_NULL_OBJECT :
+			fprintf (stderr,
+					"2st argument of chardet() is must memory allocation "
+					"with detect_obj_init API\\n");
+			return CHARDET_NULL_OBJECT;
+	}
+
+	printf ("encoding: %s, confidence: %f\\n", obj->encoding, obj->confidence);
+	detect_obj_free (&obj);
+
+    return 0;
+}
+.fi
+
+.SH 저자
+김정균
+
+.SH 버그 리포트
+<http://oops.org> 의 QnA 게시판을 이용한다.
+
+.SH "참고"
+detect_handledata(3), detect_obj_init(3), detect_obj_free(3)

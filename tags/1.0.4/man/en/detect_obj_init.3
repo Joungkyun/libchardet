@@ -1,0 +1,73 @@
+.TH detect_obj_init 3 2011-05-02 "libchardet manuals"
+.\" Process with
+.\" nroff -man detect_obj_init.3
+.\" 2011-05-02 JoungKyun Kim <htt://oops.org>
+.\" $Id$
+
+.SH NAME
+detect_obj_init - initialize DetectObject structure
+
+.SH SNOPSIS
+.I #include <chardet.h>
+.br
+.I DetectObj chardet_obj_init (void);
+
+.SH DESCRIPTION
+initialize
+.B DetectObj
+structure that is stored chardet informations.
+
+.SH "RETURN VALUE"
+Returns
+.B DetectObject
+structure. The return value is must freed by
+.B chardet_obj_free
+api.
+.nf
+
+	typedef struct DetectObject {
+		char * encoding;
+		float confidence;
+	} DetectObj;
+.PP
+
+.SH EXAMPLE
+.nf
+#include <chardet.h>
+
+int main (void) {
+	DetectObj *obj;
+
+	if ( (obj = detect_obj_init ()) == NULL ) {
+		fprintf (stderr, "Memory Allocation failed\\n");
+		return CHARDET_MEM_ALLOCATED_FAIL;
+	}
+
+	switch (detect ("¾È³çÇÏ¼¼¿ä", &obj)) {
+		case CHARDET_OUT_OF_MEMORY :
+			fprintf (stderr, "On handle processing, occured out of memory\\n");
+			detect_obj_free (&obj);
+			return CHARDET_OUT_OF_MEMORY;
+		case CHARDET_NULL_OBJECT :
+			fprintf (stderr,
+					"2st argument of chardet() is must memory allocation "
+					"with detect_obj_init API\\n");
+			return CHARDET_NULL_OBJECT;
+	}
+
+	printf ("encoding: %s, confidence: %f\\n", obj->encoding, obj->confidence);
+	detect_obj_free (&obj);
+
+    return 0;
+}
+.fi
+
+.SH AUTHORS
+JoungKyun.Kim <http://oops.org>
+
+.SH "BUG REPORTS"
+Use QnA board on http://oops.org
+
+.SH "SEE ALSO"
+detect_obj_free(3), detect(3), detect_handledata(3)
+
