@@ -1,0 +1,139 @@
+.TH detect_handledata 3 2011-05-02 "libchardet manuals"
+.\" Process with
+.\" nroff -man detect_handledata.3
+.\" 2011-05-02 JoungKyun Kim <htt://oops.org>
+.\" $Id$
+
+.SH NAME
+detect_handledata \- Detecting character set and measuring accuracy of charset
+
+.SH SNOPSYS
+.B "#include <chardet.h>"
+.sp
+.BI "short chardet_handledata (Detect ** handle, const char * inbuf, DetectObj ** outbuf);"
+
+.SH DESCRIPTION
+Storing charset and accuracy of
+.B inbuf to
+.B outbuf
+
+.TP
+.B handle
+.br
+.B Detect
+handle resource that allocated by
+.B detect_init
+api.
+
+.TP
+.B inbuf
+.br
+input string for detecting
+
+.TP
+.B outbuf
+.br
+Stroing inforamtion of
+.B inbuf
+. The structure of
+.B outbuf
+is follows.
+
+.nf
+	typedef struct DetectObject {
+		char * encoding;
+		float confidence;
+	} DetectObj;
+.fi
+
+The
+.B outbuf
+variable is must initialized by
+.BI detect_obj_init
+API before calling this detect api.
+
+.SH "RETURN VALUES"
+Returns following condition as case by case.
+
+.TP
+.B CHARDET_SUCCESS
+.br
+Detecting success
+
+.TP
+.B CHARDET_NO_RESULT
+.br
+Detection failure
+
+.TP
+.B CHARDET_NULL_OBJECT
+.br
+Don't initializing
+.B outbuf
+with
+.BI chardet_obj_init
+
+.TP
+.B CHARDET_OUT_OF_MEMORY
+.br
+Occuring
+.B "out of memory"
+at internal API
+
+.SH EXAMPLE
+.nf
+#include <chardet.h>
+
+int main (void) {
+	Detect    * d;
+	DetectObj * obj;
+	int i, arrayNum;
+	char *str[] = {
+		"this is ascii",
+		"이건 euc-kr 입니다."
+	};
+
+	arrayNum = sizeof (str) / sizeof (str[0]);
+
+	if ( (d = detect_init ()) == NULL ) {
+		fprintf (stderr, "chardet handle initialize failed\\n");
+		return CHARDET_MEM_ALLOCATED_FAIL;
+	}
+
+	for ( i=0; i<arrayNum; i++ ) {
+		detect_reset (&d);
+
+		if ( (obj = detect_obj_init ()) == NULL ) {
+			fprintf (stderr, "Memory Allocation failed\\n");
+			return CHARDET_MEM_ALLOCATED_FAIL;
+		}
+
+		switch (detect_handledata (&d, "안녕하세요", &obj)) {
+			case CHARDET_OUT_OF_MEMORY :
+				fprintf (stderr, "On handle processing, occured out of memory\\n");
+				detect_obj_free (&obj);
+				return CHARDET_OUT_OF_MEMORY;
+			case CHARDET_NULL_OBJECT :
+				fprintf (stderr,
+						"2st argument of chardet() is must memory allocation "
+						"with detect_obj_init API\\n");
+				return CHARDET_NULL_OBJECT;
+		}
+
+		printf ("encoding: %s, confidence: %f\\n", obj->encoding, obj->confidence);
+		detect_obj_free (&obj);
+	}
+	detect_destroy (&d);
+
+    return 0;
+}
+.fi
+
+.SH AUTHORS
+JoungKyun.Kim <http://oops.org>
+
+.SH "BUG REPORTS"
+Use QnA board on http://oops.org
+
+.SH "SEE ALSO"
+detect_obj_init(3), detect_obj_free(3), detect_init(3), detect_reset(3), detect_destroy(3)
