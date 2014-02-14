@@ -292,7 +292,9 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 DISTCLEANFILES = *.bz2 aclocal.m4 *~
-EXTRA_DIST = Changelog LICENSE libchardet.spec
+EXTRA_DIST = Changelog LICENSE libchardet.spec \
+			 project/libchardet.cbp
+
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = . src man
 
