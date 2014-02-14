@@ -5,7 +5,7 @@
 
 #
 AC_PREREQ(2.59)
-AC_INIT([libchardet], [1.0.4], [http://oops.org])
+AC_INIT([libchardet], [1.0.5], [http://oops.org])
 AC_CONFIG_AUX_DIR([tools])
 AM_INIT_AUTOMAKE([-Wall -Werror -Wno-override foreign no-dependencies])
 AM_MAINTAINER_MODE
