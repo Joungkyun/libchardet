@@ -30,7 +30,8 @@
 # $Id$
 
 DISTCLEANFILES =
-EXTRA_DIST = Changelog LICENSE libchardet.spec
+EXTRA_DIST = Changelog LICENSE libchardet.spec \
+			 project/libchardet.cbp
 
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = . src man
