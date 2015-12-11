@@ -3,7 +3,7 @@ Mozilla's Universal Charset Detector C/C++ API (libchardet) Readme document
 $Id$
 
 Author: JoungKyun.Kim <http://oops.org>
-2009/02/22
+2015/12/11
 
 libchardet is based on Mozilla Universal Charset Detector library and, detects
 the character set used to encode data.
