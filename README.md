@@ -1,4 +1,4 @@
-Mozilla's Universal Charset Detector C/C++ API (libchardet) Readme document
+libchardet - Mozilla's Universal Charset Detector C/C++ API
 ===
 
 ## License
