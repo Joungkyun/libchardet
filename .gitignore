@@ -1,0 +1,16 @@
+*.swp
+*~
+*.o
+*.lo
+*.la
+.libs
+Makefile
+config.h
+config.log
+config.status
+chardet-config
+chardet-config.h
+*.pc
+*.spec
+libtool
+stamp-h1
