@@ -1,4 +1,6 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+ * vim600: et sw=2 ts=2 fdm=marker
+ */
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -53,7 +55,7 @@ nsProbingState nsSingleByteCharSetProber::HandleData(const char* aBuf, PRUint32 
       mState = eNotMe;
       break;
     }
-	else if (order == CTR)
+    else if (order == CTR)
       mCtrlChar++;
 
     if (order < mModel->freqCharCount)
