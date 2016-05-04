@@ -337,7 +337,7 @@ SequenceModel MacCyrillicModel =
   64,
   (float)0.976601,
   PR_FALSE,
-  "x-mac-cyrillic"
+  "MAC-CYRILLIC"
 };
 
 SequenceModel Ibm866_CyrillicModel = 

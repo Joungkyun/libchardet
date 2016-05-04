@@ -146,5 +146,5 @@ SequenceModel Win1250_HungarianModel =
   32,
   (float)0.9744556413335339,
   PR_FALSE,
-  "WINDOWS-1250"
+  "windows-1250"
 };

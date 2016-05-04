@@ -259,7 +259,7 @@ SMModel EUCTWSMModel = {
    7,
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, EUCTW_st },
   EUCTWCharLenTable,
-  "x-euc-tw",
+  "EUC-TW",
 };
 
 /* obsolete GB2312 by gb18030
