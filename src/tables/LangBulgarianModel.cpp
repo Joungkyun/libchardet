@@ -48,7 +48,7 @@ NUM: 0 - 9
 //this talbe is modified base on win1251BulgarianCharToOrderMap, so 
 //only number <64 is sure valid
 
-unsigned char Latin5_BulgarianCharToOrderMap[] =
+static unsigned char Latin5_BulgarianCharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR,  //00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,  //10
@@ -68,7 +68,7 @@ SYM, 65, 69, 70, 66, 63, 68,112,103, 92,194,104, 95, 86, 87, 71,  //60
  62,242,243,244, 58,245, 98,246,247,248,249,250,251, 91,NUM,SYM,  //f0
 };
 
-unsigned char win1251BulgarianCharToOrderMap[] =
+static unsigned char win1251BulgarianCharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR,  //00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,  //10
@@ -226,7 +226,7 @@ char BulgarianLangModel[] =
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 };
 
-SequenceModel Latin5BulgarianModel = 
+SequenceModel Latin5_BulgarianModel = 
 {
   Latin5_BulgarianCharToOrderMap,
   BulgarianLangModel,
@@ -236,7 +236,7 @@ SequenceModel Latin5BulgarianModel =
   "ISO-8859-5"
 };
 
-SequenceModel Win1251BulgarianModel = 
+SequenceModel Win1251_BulgarianModel = 
 {
   win1251BulgarianCharToOrderMap,
   BulgarianLangModel,

@@ -41,7 +41,7 @@
 
 //KOI8-R language model
 //Character Mapping Table:
-unsigned char KOI8R_CharToOrderMap[] =
+static unsigned char KOI8R_CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR,  //00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,  //10
@@ -61,7 +61,7 @@ SYM, 71,172, 66,173, 65,174, 76,175, 64,176,177, 77, 72,178, 69,  //60
  35, 43, 45, 32, 40, 52, 56, 33, 61, 62, 51, 57, 47, 63, 50, 70,  //f0
 };
 
-unsigned char win1251_CharToOrderMap[] =
+static unsigned char win1251_CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR,  //00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,  //10
@@ -81,7 +81,7 @@ SYM, 71,172, 66,173, 65,174, 76,175, 64,176,177, 77, 72,178, 69,  //60
   9,  7,  6, 14, 39, 26, 28, 22, 25, 29, 54, 18, 17, 30, 27, 16,
 };
 
-unsigned char latin5_CharToOrderMap[] =
+static unsigned char latin5_CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR,  //00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,  //10
@@ -101,7 +101,7 @@ SYM, 71,172, 66,173, 65,174, 76,175, 64,176,177, 77, 72,178, 69,  //60
 239, 68,240,241,242,243,244,245,246,247,248,249,250,251,NUM,CTR,
 };
 
-unsigned char macCyrillic_CharToOrderMap[] =
+static unsigned char macCyrillic_CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR,  //00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,  //10
@@ -121,7 +121,7 @@ SYM, 71,172, 66,173, 65,174, 76,175, 64,176,177, 77, 72,178, 69,  //60
   9,  7,  6, 14, 39, 26, 28, 22, 25, 29, 54, 18, 17, 30, 27,CTR,
 };
 
-unsigned char IBM855_CharToOrderMap[] =
+static unsigned char IBM855_CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR,  //00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,  //10
@@ -141,7 +141,7 @@ SYM, 71,172, 66,173, 65,174, 76,175, 64,176,177, 77, 72,178, 69,  //60
 250, 18, 62, 20, 51, 25, 57, 30, 47, 29, 63, 22, 50,251,NUM,CTR,
 };
 
-unsigned char IBM866_CharToOrderMap[] =
+static unsigned char IBM866_CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR,  //00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,  //10
@@ -300,7 +300,7 @@ char RussianLangModel[] =
 };
 
 
-SequenceModel Koi8rModel = 
+SequenceModel Koi8r_CyrillicModel = 
 {
   KOI8R_CharToOrderMap,
   RussianLangModel,
@@ -310,7 +310,7 @@ SequenceModel Koi8rModel =
   "KOI8-R"
 };
 
-SequenceModel Win1251Model = 
+SequenceModel Win1251_CyrillicModel = 
 {
   win1251_CharToOrderMap,
   RussianLangModel,
@@ -320,7 +320,7 @@ SequenceModel Win1251Model =
   "windows-1251"
 };
 
-SequenceModel Latin5Model = 
+SequenceModel Latin5_CyrillicModel = 
 {
   latin5_CharToOrderMap,
   RussianLangModel,
@@ -340,17 +340,17 @@ SequenceModel MacCyrillicModel =
   "x-mac-cyrillic"
 };
 
-SequenceModel Ibm866Model = 
+SequenceModel Ibm866_CyrillicModel = 
 {
   IBM866_CharToOrderMap,
   RussianLangModel,
-  (float)0.976601,
   64,
+  (float)0.976601,
   PR_FALSE,
   "IBM866"
 };
 
-SequenceModel Ibm855Model = 
+SequenceModel Ibm855_CyrillicModel = 
 {
   IBM855_CharToOrderMap,
   RussianLangModel,

@@ -160,19 +160,15 @@ am_libchardet_la_OBJECTS = libchardet_la-CharDistribution.lo \
 	libchardet_la-LangGreekModel.lo \
 	libchardet_la-LangHebrewModel.lo \
 	libchardet_la-LangHungarianModel.lo \
-	libchardet_la-LangThaiModel.lo libchardet_la-nsBig5Prober.lo \
-	libchardet_la-nsCharSetProber.lo \
-	libchardet_la-nsEUCJPProber.lo libchardet_la-nsEUCKRProber.lo \
-	libchardet_la-nsEUCTWProber.lo \
-	libchardet_la-nsEscCharsetProber.lo libchardet_la-nsEscSM.lo \
-	libchardet_la-nsGB2312Prober.lo \
-	libchardet_la-nsHebrewProber.lo \
-	libchardet_la-nsLatin1Prober.lo \
-	libchardet_la-nsMBCSGroupProber.lo libchardet_la-nsMBCSSM.lo \
-	libchardet_la-nsSBCSGroupProber.lo \
-	libchardet_la-nsSBCharSetProber.lo \
-	libchardet_la-nsSJISProber.lo libchardet_la-nsUTF8Prober.lo \
-	libchardet_la-nsUniversalDetector.lo libchardet_la-chardet.lo
+	libchardet_la-LangThaiModel.lo \
+	libchardet_la-LangArabicModel.lo \
+	libchardet_la-LangDanishModel.lo \
+	libchardet_la-LangEsperantoModel.lo \
+	libchardet_la-LangFrenchModel.lo \
+	libchardet_la-LangGermanModel.lo \
+	libchardet_la-LangSpanishModel.lo \
+	libchardet_la-LangTurkishModel.lo \
+	libchardet_la-LangVietnameseModel.lo
 libchardet_la_OBJECTS = $(am_libchardet_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -407,13 +403,14 @@ libchardet_la_SOURCES = CharDistribution.cpp JpCntx.cpp \
 		tables/LangHebrewModel.cpp \
 		tables/LangHungarianModel.cpp \
 		tables/LangThaiModel.cpp \
-		nsBig5Prober.cpp \
-		nsCharSetProber.cpp nsEUCJPProber.cpp nsEUCKRProber.cpp \
-		nsEUCTWProber.cpp nsEscCharsetProber.cpp nsEscSM.cpp \
-		nsGB2312Prober.cpp nsHebrewProber.cpp nsLatin1Prober.cpp \
-		nsMBCSGroupProber.cpp nsMBCSSM.cpp nsSBCSGroupProber.cpp \
-		nsSBCharSetProber.cpp nsSJISProber.cpp nsUTF8Prober.cpp \
-		nsUniversalDetector.cpp chardet.cpp
+		tables/LangArabicModel.cpp \
+		tables/LangDanishModel.cpp \
+		tables/LangEsperantoModel.cpp \
+		tables/LangFrenchModel.cpp \
+		tables/LangGermanModel.cpp \
+		tables/LangSpanishModel.cpp \
+		tables/LangTurkishModel.cpp \
+		tables/LangVietnameseModel.cpp
 
 libchardet_la_CPPFLAGS = -I../include
 all: all-am
@@ -528,59 +525,29 @@ libchardet_la-LangHungarianModel.lo: tables/LangHungarianModel.cpp
 libchardet_la-LangThaiModel.lo: tables/LangThaiModel.cpp
 	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangThaiModel.lo `test -f 'tables/LangThaiModel.cpp' || echo '$(srcdir)/'`tables/LangThaiModel.cpp
 
-libchardet_la-nsBig5Prober.lo: nsBig5Prober.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsBig5Prober.lo `test -f 'nsBig5Prober.cpp' || echo '$(srcdir)/'`nsBig5Prober.cpp
+libchardet_la-LangArabicModel.lo: tables/LangArabicModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangArabicModel.lo `test -f 'tables/LangArabicModel.cpp' || echo '$(srcdir)/'`tables/LangArabicModel.cpp
 
-libchardet_la-nsCharSetProber.lo: nsCharSetProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsCharSetProber.lo `test -f 'nsCharSetProber.cpp' || echo '$(srcdir)/'`nsCharSetProber.cpp
+libchardet_la-LangDanishModel.lo: tables/LangDanishModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangDanishModel.lo `test -f 'tables/LangDanishModel.cpp' || echo '$(srcdir)/'`tables/LangDanishModel.cpp
 
-libchardet_la-nsEUCJPProber.lo: nsEUCJPProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsEUCJPProber.lo `test -f 'nsEUCJPProber.cpp' || echo '$(srcdir)/'`nsEUCJPProber.cpp
+libchardet_la-LangEsperantoModel.lo: tables/LangEsperantoModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangEsperantoModel.lo `test -f 'tables/LangEsperantoModel.cpp' || echo '$(srcdir)/'`tables/LangEsperantoModel.cpp
 
-libchardet_la-nsEUCKRProber.lo: nsEUCKRProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsEUCKRProber.lo `test -f 'nsEUCKRProber.cpp' || echo '$(srcdir)/'`nsEUCKRProber.cpp
+libchardet_la-LangFrenchModel.lo: tables/LangFrenchModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangFrenchModel.lo `test -f 'tables/LangFrenchModel.cpp' || echo '$(srcdir)/'`tables/LangFrenchModel.cpp
 
-libchardet_la-nsEUCTWProber.lo: nsEUCTWProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsEUCTWProber.lo `test -f 'nsEUCTWProber.cpp' || echo '$(srcdir)/'`nsEUCTWProber.cpp
+libchardet_la-LangGermanModel.lo: tables/LangGermanModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangGermanModel.lo `test -f 'tables/LangGermanModel.cpp' || echo '$(srcdir)/'`tables/LangGermanModel.cpp
 
-libchardet_la-nsEscCharsetProber.lo: nsEscCharsetProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsEscCharsetProber.lo `test -f 'nsEscCharsetProber.cpp' || echo '$(srcdir)/'`nsEscCharsetProber.cpp
+libchardet_la-LangSpanishModel.lo: tables/LangSpanishModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangSpanishModel.lo `test -f 'tables/LangSpanishModel.cpp' || echo '$(srcdir)/'`tables/LangSpanishModel.cpp
 
-libchardet_la-nsEscSM.lo: nsEscSM.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsEscSM.lo `test -f 'nsEscSM.cpp' || echo '$(srcdir)/'`nsEscSM.cpp
+libchardet_la-LangTurkishModel.lo: tables/LangTurkishModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangTurkishModel.lo `test -f 'tables/LangTurkishModel.cpp' || echo '$(srcdir)/'`tables/LangTurkishModel.cpp
 
-libchardet_la-nsGB2312Prober.lo: nsGB2312Prober.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsGB2312Prober.lo `test -f 'nsGB2312Prober.cpp' || echo '$(srcdir)/'`nsGB2312Prober.cpp
-
-libchardet_la-nsHebrewProber.lo: nsHebrewProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsHebrewProber.lo `test -f 'nsHebrewProber.cpp' || echo '$(srcdir)/'`nsHebrewProber.cpp
-
-libchardet_la-nsLatin1Prober.lo: nsLatin1Prober.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsLatin1Prober.lo `test -f 'nsLatin1Prober.cpp' || echo '$(srcdir)/'`nsLatin1Prober.cpp
-
-libchardet_la-nsMBCSGroupProber.lo: nsMBCSGroupProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsMBCSGroupProber.lo `test -f 'nsMBCSGroupProber.cpp' || echo '$(srcdir)/'`nsMBCSGroupProber.cpp
-
-libchardet_la-nsMBCSSM.lo: nsMBCSSM.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsMBCSSM.lo `test -f 'nsMBCSSM.cpp' || echo '$(srcdir)/'`nsMBCSSM.cpp
-
-libchardet_la-nsSBCSGroupProber.lo: nsSBCSGroupProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsSBCSGroupProber.lo `test -f 'nsSBCSGroupProber.cpp' || echo '$(srcdir)/'`nsSBCSGroupProber.cpp
-
-libchardet_la-nsSBCharSetProber.lo: nsSBCharSetProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsSBCharSetProber.lo `test -f 'nsSBCharSetProber.cpp' || echo '$(srcdir)/'`nsSBCharSetProber.cpp
-
-libchardet_la-nsSJISProber.lo: nsSJISProber.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsSJISProber.lo `test -f 'nsSJISProber.cpp' || echo '$(srcdir)/'`nsSJISProber.cpp
-
-libchardet_la-nsUTF8Prober.lo: nsUTF8Prober.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsUTF8Prober.lo `test -f 'nsUTF8Prober.cpp' || echo '$(srcdir)/'`nsUTF8Prober.cpp
-
-libchardet_la-nsUniversalDetector.lo: nsUniversalDetector.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsUniversalDetector.lo `test -f 'nsUniversalDetector.cpp' || echo '$(srcdir)/'`nsUniversalDetector.cpp
-
-libchardet_la-chardet.lo: chardet.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-chardet.lo `test -f 'chardet.cpp' || echo '$(srcdir)/'`chardet.cpp
+libchardet_la-LangVietnameseModel.lo: tables/LangVietnameseModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangVietnameseModel.lo `test -f 'tables/LangVietnameseModel.cpp' || echo '$(srcdir)/'`tables/LangVietnameseModel.cpp
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -815,6 +782,13 @@ uninstall-am: uninstall-includeHEADERS uninstall-libLTLIBRARIES
 	tags tags-am uninstall uninstall-am uninstall-includeHEADERS \
 	uninstall-libLTLIBRARIES
 
+		nsBig5Prober.cpp \
+		nsCharSetProber.cpp nsEUCJPProber.cpp nsEUCKRProber.cpp \
+		nsEUCTWProber.cpp nsEscCharsetProber.cpp nsEscSM.cpp \
+		nsGB2312Prober.cpp nsHebrewProber.cpp nsLatin1Prober.cpp \
+		nsMBCSGroupProber.cpp nsMBCSSM.cpp nsSBCSGroupProber.cpp \
+		nsSBCharSetProber.cpp nsSJISProber.cpp nsUTF8Prober.cpp \
+		nsUniversalDetector.cpp chardet.cpp
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

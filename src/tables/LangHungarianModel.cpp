@@ -45,7 +45,7 @@ SYM: symbol (punctuation) that does not belong to word.
 NUM: 0 - 9.
 
 *****************************************************************/
-unsigned char Latin2_HungarianCharToOrderMap[] =
+static unsigned char Latin2_HungarianCharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR, // 00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR, // 10
@@ -65,7 +65,7 @@ SYM, 60,SYM, 41,SYM, 54, 43,SYM,SYM, 36, 53, 61, 62,SYM, 44, 63, // b0
  39, 48, 49, 23, 51, 27, 24,SYM, 42, 76, 30, 31, 29, 52, 77,SYM, // f0
 };
 
-unsigned char win1250HungarianCharToOrderMap[] =
+static unsigned char win1250HungarianCharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR, // 00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR, // 10
@@ -129,7 +129,7 @@ char HungarianLangModel[] =
 };
 
 
-SequenceModel Latin2HungarianModel = 
+SequenceModel Latin2_HungarianModel = 
 {
   Latin2_HungarianCharToOrderMap,
   HungarianLangModel,
@@ -139,7 +139,7 @@ SequenceModel Latin2HungarianModel =
   "ISO-8859-2"
 };
 
-SequenceModel Win1250HungarianModel = 
+SequenceModel Win1250_HungarianModel = 
 {
   win1250HungarianCharToOrderMap,
   HungarianLangModel,

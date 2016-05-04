@@ -45,7 +45,7 @@ SYM: symbol (punctuation) that does not belong to word.
 NUM: 0 - 9.
 
 *****************************************************************/
-unsigned char win1253_CharToOrderMap[] =
+static unsigned char win1253_CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR, // 00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR, // 10
@@ -66,7 +66,7 @@ SYM,SYM,SYM,SYM,SYM, 62,SYM,SYM, 19, 21, 15,SYM, 16,SYM, 25, 28, // b0
 };
 
 
-unsigned char Latin7_CharToOrderMap[] =
+static unsigned char Latin7_CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR, // 00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR, // 10
@@ -148,7 +148,7 @@ char GreekLangModel[] =
 };
 
 
-SequenceModel Win1253Model = 
+SequenceModel Win1253_GreekModel = 
 {
 win1253_CharToOrderMap,
 GreekLangModel,
@@ -158,7 +158,7 @@ PR_FALSE,
 "windows-1253"
 };
 
-SequenceModel Latin7Model = 
+SequenceModel Latin7_GreekModel = 
 {
 Latin7_CharToOrderMap,
 GreekLangModel,

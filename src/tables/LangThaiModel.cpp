@@ -45,7 +45,7 @@ SYM: symbol (punctuation) that does not belong to word.
 NUM: 0 - 9.
 
 *****************************************************************/
-static const unsigned char Latin11CharToOrderMap[] =
+static unsigned char Latin11CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR, // 00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR, // 10
@@ -65,7 +65,7 @@ SYM,  3, 25,105, 17,106, 96,  5, 22, 56, 23, 30, 74, 35, 63, 58, // a0
 NUM,NUM,NUM,NUM,NUM,NUM,NUM,NUM,NUM,NUM,110,111,ILL,ILL,ILL,ILL, // f0
 };
 
-unsigned char TIS620CharToOrderMap[] =
+static unsigned char TIS620CharToOrderMap[] =
 {
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,RET,CTR,CTR,RET,CTR,CTR, // 00
 CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR,CTR, // 10
@@ -225,7 +225,7 @@ char ThaiLangModel[] =
 };
 
 
-SequenceModel Latin11ThaiModel =
+SequenceModel Latin11_ThaiModel =
 {
   Latin11CharToOrderMap,
   ThaiLangModel,
@@ -235,7 +235,7 @@ SequenceModel Latin11ThaiModel =
   "ISO-8859-11"
 };
 
-SequenceModel TIS620ThaiModel = 
+SequenceModel TIS620_ThaiModel = 
 {
   TIS620CharToOrderMap,
   ThaiLangModel,

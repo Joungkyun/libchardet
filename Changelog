@@ -6,8 +6,11 @@ $Id$
 
 2016/05/04 KST
 	- fixed #1 separate model directory
-	- fixed #2 Improve single-byte charset detection confidence algorithm
-	- fixed #3 update model of Greek, Hungarian and Thai
+	- merge uchardet's improvement
+	  . fixed #2 Improve single-byte charset detection confidence algorithm
+	  . fixed #3 update model of Greek, Hungarian and Thai
+	  . fixed #4 new language model (Arabic, Danish, Esperanto, German, Spanish,
+	             Turkish, Vietnamese)
 
 2015/12/10 KST
 	- fixed man pages wrong macro bug (martin.gansser@gmail.com)

@@ -77,6 +77,14 @@ libchardet_la_SOURCES = CharDistribution.cpp JpCntx.cpp \
 		tables/LangHebrewModel.cpp \
 		tables/LangHungarianModel.cpp \
 		tables/LangThaiModel.cpp \
+		tables/LangArabicModel.cpp \
+		tables/LangDanishModel.cpp \
+		tables/LangEsperantoModel.cpp \
+		tables/LangFrenchModel.cpp \
+		tables/LangGermanModel.cpp \
+		tables/LangSpanishModel.cpp \
+		tables/LangTurkishModel.cpp \
+		tables/LangVietnameseModel.cpp
 		nsBig5Prober.cpp \
 		nsCharSetProber.cpp nsEUCJPProber.cpp nsEUCKRProber.cpp \
 		nsEUCTWProber.cpp nsEscCharsetProber.cpp nsEscSM.cpp \

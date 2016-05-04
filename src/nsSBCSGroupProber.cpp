@@ -46,23 +46,23 @@
 
 nsSBCSGroupProber::nsSBCSGroupProber()
 {
-  mProbers[0] = new nsSingleByteCharSetProber(&Win1251Model);
-  mProbers[1] = new nsSingleByteCharSetProber(&Koi8rModel);
-  mProbers[2] = new nsSingleByteCharSetProber(&Latin5Model);
+  mProbers[0] = new nsSingleByteCharSetProber(&Win1251_CyrillicModel);
+  mProbers[1] = new nsSingleByteCharSetProber(&Koi8_CyrillicrModel);
+  mProbers[2] = new nsSingleByteCharSetProber(&Latin5_CyrillicModel);
   mProbers[3] = new nsSingleByteCharSetProber(&MacCyrillicModel);
-  mProbers[4] = new nsSingleByteCharSetProber(&Ibm866Model);
-  mProbers[5] = new nsSingleByteCharSetProber(&Ibm855Model);
-  mProbers[6] = new nsSingleByteCharSetProber(&Latin7Model);
-  mProbers[7] = new nsSingleByteCharSetProber(&Win1253Model);
-  mProbers[8] = new nsSingleByteCharSetProber(&Latin5BulgarianModel);
-  mProbers[9] = new nsSingleByteCharSetProber(&Win1251BulgarianModel);
+  mProbers[4] = new nsSingleByteCharSetProber(&Ibm866_CyrillicModel);
+  mProbers[5] = new nsSingleByteCharSetProber(&Ibm855_CyrillicModel);
+  mProbers[6] = new nsSingleByteCharSetProber(&Latin7_GreekModel);
+  mProbers[7] = new nsSingleByteCharSetProber(&Win1253_GreekModel);
+  mProbers[8] = new nsSingleByteCharSetProber(&Latin5_BulgarianModel);
+  mProbers[9] = new nsSingleByteCharSetProber(&Win125_1BulgarianModel);
 
   nsHebrewProber *hebprober = new nsHebrewProber();
   // Notice: Any change in these indexes - 10,11,12 must be reflected
   // in the code below as well.
   mProbers[10] = hebprober;
-  mProbers[11] = new nsSingleByteCharSetProber(&Win1255Model, PR_FALSE, hebprober); // Logical Hebrew
-  mProbers[12] = new nsSingleByteCharSetProber(&Win1255Model, PR_TRUE, hebprober); // Visual Hebrew
+  mProbers[11] = new nsSingleByteCharSetProber(&Win1255_HebrewModel, PR_FALSE, hebprober); // Logical Hebrew
+  mProbers[12] = new nsSingleByteCharSetProber(&Win1255_HebrewModel, PR_TRUE, hebprober); // Visual Hebrew
   // Tell the Hebrew prober about the logical and visual probers
   if (mProbers[10] && mProbers[11] && mProbers[12]) // all are not null
   {
@@ -77,10 +77,36 @@ nsSBCSGroupProber::nsSBCSGroupProber()
     }
   }
 
-  mProbers[13] = new nsSingleByteCharSetProber(&Latin2HungarianModel);
-  mProbers[14] = new nsSingleByteCharSetProber(&Win1250HungarianModel);
-  mProbers[15] = new nsSingleByteCharSetProber(&TIS620ThaiModel);
-  mProbers[16] = new nsSingleByteCharSetProber(&Latin11ThaiModel);
+  mProbers[13] = new nsSingleByteCharSetProber(&Latin2_HungarianModel);
+  mProbers[14] = new nsSingleByteCharSetProber(&Win1250_HungarianModel);
+  mProbers[15] = new nsSingleByteCharSetProber(&TIS620_ThaiModel);
+  mProbers[16] = new nsSingleByteCharSetProber(&Latin11_ThaiModel);
+
+  mProbers[17] = new nsSingleByteCharSetProber(&Latin6_ArabicModel);
+  mProbers[18] = new nsSingleByteCharSetProber(&Windows1256_ArabicModel);
+
+  mProbers[19] = new nsSingleByteCharSetProber(&Latin1_DanishModel);
+  mProbers[20] = new nsSingleByteCharSetProber(&Latin15_DanishModel);
+  mProbers[21] = new nsSingleByteCharSetProber(&Windows1252_DanishModel);
+
+  mProbers[22] = new nsSingleByteCharSetProber(&Latin3_EsperantoModel);
+
+  mProbers[23] = new nsSingleByteCharSetProber(&Latin1_FrenchModel);
+  mProbers[24] = new nsSingleByteCharSetProber(&Latin15_FrenchModel);
+  mProbers[25] = new nsSingleByteCharSetProber(&Windows1252_FrenchModel);
+
+  mProbers[26] = new nsSingleByteCharSetProber(&Latin1_GermanModel);
+  mProbers[27] = new nsSingleByteCharSetProber(&Windows1252_GermanModel);
+
+  mProbers[28] = new nsSingleByteCharSetProber(&Latin1_SpanishModel);
+  mProbers[29] = new nsSingleByteCharSetProber(&Latin15_SpanishModel);
+  mProbers[30] = new nsSingleByteCharSetProber(&Windows1252_SpanishModel);
+
+  mProbers[31] = new nsSingleByteCharSetProber(&Latin3_TurkishModel);
+  mProbers[32] = new nsSingleByteCharSetProber(&Latin9_TurkishModel);
+
+  mProbers[33] = new nsSingleByteCharSetProber(&Viscii_VietnameseModel);
+  mProbers[34] = new nsSingleByteCharSetProber(&Windows1258_VietnameseModel);
 
   Reset();
 }
