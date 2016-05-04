@@ -15,7 +15,11 @@ Gardiner Myers &lt;jgmyers@proofpoint.com&gt; made independent Universal Detecto
 code from Mozilla Browser.
 
 libchardet based on John Gardiner Myers's code that call [Encode-Detect-1.01](http://search.cpan.org/~jgmyers/Encode-Detect-1.01/)
-perl module, and added C wrapping API, and library build environment with libtool
+perl module, and added C wrapping API, and library build environment with libtool.
+
+From 1.0.5, libchardet was reflected single-byte charset detection confidence
+algorithm of [uchardet](https://github.com/BYVoid/uchardet/) and new language models.
+
 
 ## Sample Codes
 
