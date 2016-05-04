@@ -4,8 +4,9 @@ $Id$
 
 *** 1.0.5
 
-2016/05/05 KST
-	- #1 separate model directory
+2016/05/04 KST
+	- fixed #1 separate model directory
+	- fixed #2 Improve single-byte charset detection confidence algorithm
 
 2015/12/10 KST
 	- fixed man pages wrong macro bug (martin.gansser@gmail.com)

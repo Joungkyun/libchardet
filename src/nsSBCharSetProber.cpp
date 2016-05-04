@@ -48,17 +48,25 @@ nsProbingState nsSingleByteCharSetProber::HandleData(const char* aBuf, PRUint32 
 
     if (order < SYMBOL_CAT_ORDER)
       mTotalChar++;
-    if (order < SAMPLE_SIZE)
+    else if (order == ILL)
+    {
+      mState = eNotMe;
+      break;
+    }
+	else if (order == CTR)
+      mCtrlChar++;
+
+    if (order < mModel->freqCharCount)
     {
         mFreqChar++;
 
-      if (mLastOrder < SAMPLE_SIZE)
+      if (mLastOrder < mModel->freqCharCount)
       {
         mTotalSeqs++;
         if (!mReversed)
-          ++(mSeqCounters[(int)mModel->precedenceMatrix[mLastOrder*SAMPLE_SIZE+order]]);
+          ++(mSeqCounters[(int)mModel->precedenceMatrix[mLastOrder*mModel->freqCharCount+order]]);
         else // reverse the order of the letters in the lookup
-          ++(mSeqCounters[(int)mModel->precedenceMatrix[order*SAMPLE_SIZE+mLastOrder]]);
+          ++(mSeqCounters[(int)mModel->precedenceMatrix[order*mModel->freqCharCount+mLastOrder]]);
       }
     }
     mLastOrder = order;
@@ -85,6 +93,7 @@ void  nsSingleByteCharSetProber::Reset(void)
     mSeqCounters[i] = 0;
   mTotalSeqs = 0;
   mTotalChar = 0;
+  mCtrlChar  = 0;
   mFreqChar = 0;
 }
 
@@ -102,7 +111,9 @@ float nsSingleByteCharSetProber::GetConfidence(void)
 
   if (mTotalSeqs > 0) {
     r = ((float)1.0) * mSeqCounters[POSITIVE_CAT] / mTotalSeqs / mModel->mTypicalPositiveRatio;
-    r = r*mFreqChar/mTotalChar;
+    r = r * mSeqCounters[POSITIVE_CAT] / mTotalChar;
+    r = r * (mTotalChar-mCtrlChar) / mTotalChar;
+    r = r * mFreqChar / mTotalChar;
     if (r >= (float)1.00)
       r = (float)0.99;
     return r;

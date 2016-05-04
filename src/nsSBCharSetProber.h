@@ -40,7 +40,19 @@
 
 #include "nsCharSetProber.h"
 
-#define SAMPLE_SIZE 64
+/** Codepoints **/
+
+/* Illegal codepoints.*/
+#define ILL 255
+/* Control character. */
+#define CTR 254
+/* Symbols and punctuation that does not belong to words. */
+#define SYM 253
+/* Return/Line feeds. */
+#define RET 252
+/* Numbers 0-9. */
+#define NUM 251
+
 #define SB_ENOUGH_REL_THRESHOLD  1024
 #define POSITIVE_SHORTCUT_THRESHOLD  (float)0.95
 #define NEGATIVE_SHORTCUT_THRESHOLD  (float)0.05
@@ -53,6 +65,7 @@ typedef struct
 {
   unsigned char *charToOrderMap;    // [256] table use to find a char's order
   char *precedenceMatrix;           // [SAMPLE_SIZE][SAMPLE_SIZE]; table to find a 2-char sequence's frequency
+  int freqCharCount;                // The count of frequent characters.
   float  mTypicalPositiveRatio;     // = freqSeqs / totalSeqs 
   PRBool keepEnglishLetter;         // says if this script contains English characters (not implemented)
   const char* charsetName;
@@ -97,6 +110,7 @@ protected:
   PRUint32 mSeqCounters[NUMBER_OF_SEQ_CAT];
 
   PRUint32 mTotalChar;
+  PRUint32 mCtrlChar;
   //characters that fall in our sampling range
   PRUint32 mFreqChar;
   
