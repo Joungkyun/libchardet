@@ -59,17 +59,25 @@ noinst_HEADERS = CharDistribution.h \
 				nsEscCharsetProber.h \
 				nsPkgInt.h \
 				../include/prmem.h \
-				Big5Freq.tab EUCKRFreq.tab EUCTWFreq.tab \
-				GB2312Freq.tab JISFreq.tab
+				tables/Big5Freq.tab \
+				tables/EUCKRFreq.tab \
+				tables/EUCTWFreq.tab \
+				tables/GB2312Freq.tab \
+				tables/JISFreq.tab
 
 AM_CFLAGS = -Wall @CFLAGS@
 AM_CXXFLAGS = -Wall -Wno-non-virtual-dtor -nostdinc++ -fno-rtti -fno-exceptions @CPPFLAGS@
 AM_LDFLAGS = -version-info $(SONAME_INFO) @LDFLAGS@ @LIBS@ @MINGW_CYGWIN_DYNLIB@
 
 lib_LTLIBRARIES = libchardet.la
-libchardet_la_SOURCES = CharDistribution.cpp JpCntx.cpp LangBulgarianModel.cpp \
-		LangCyrillicModel.cpp LangGreekModel.cpp LangHebrewModel.cpp \
-		LangHungarianModel.cpp LangThaiModel.cpp nsBig5Prober.cpp \
+libchardet_la_SOURCES = CharDistribution.cpp JpCntx.cpp \
+		tables/LangBulgarianModel.cpp \
+		tables/LangCyrillicModel.cpp \
+		tables/LangGreekModel.cpp \
+		tables/LangHebrewModel.cpp \
+		tables/LangHungarianModel.cpp \
+		tables/LangThaiModel.cpp \
+		nsBig5Prober.cpp \
 		nsCharSetProber.cpp nsEUCJPProber.cpp nsEUCKRProber.cpp \
 		nsEUCTWProber.cpp nsEscCharsetProber.cpp nsEscSM.cpp \
 		nsGB2312Prober.cpp nsHebrewProber.cpp nsLatin1Prober.cpp \
