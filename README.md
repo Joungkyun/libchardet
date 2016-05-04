@@ -19,6 +19,7 @@ perl module, and added C wrapping API, and library build environment with libtoo
 
 From 1.0.5, libchardet was reflected single-byte charset detection confidence
 algorithm of [uchardet](https://github.com/BYVoid/uchardet/) and new language models.
+(Arabic, Danish, Esperanto, German, Spanish, Turkish, Vietnamese)
 
 
 ## Sample Codes
@@ -98,6 +99,6 @@ or
 ```
 
 ## APIs
-  * PHP    - http://ftp.oops.org/pub/oops/php/extensions/mod_chardet/
-  * PYTHON - http://ftp.oops.org/pub/oops/python/chardet/
-  * PERL   - http://search.cpan.org/~jgmyers/Encode-Detect-1.01/Detect.pm
+  * PHP Extension    - http://ftp.oops.org/pub/oops/php/extensions/mod_chardet/
+  * PYTHON C Binding - http://ftp.oops.org/pub/oops/python/chardet/
+  * PERL             - http://search.cpan.org/~jgmyers/Encode-Detect-1.01/Detect.pm
