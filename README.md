@@ -54,7 +54,7 @@ See also test directory of source code
        }
 ```
 
-or
+or looping code
 
 ```c
        #include <chardet.h>
@@ -68,28 +68,29 @@ or
                  return CHARDET_MEM_ALLOCATED_FAIL;
             }
 
-            // for loop
-            //detect_reset (&d);
+            while ( 1 ) {
+                detect_reset (&d);
 
-            if ( (obj = detect_obj_init ()) == NULL ) {
-                 fprintf (stderr, "Memory Allocation failed\n");
-                 return CHARDET_MEM_ALLOCATED_FAIL;
+                if ( (obj = detect_obj_init ()) == NULL ) {
+                     fprintf (stderr, "Memory Allocation failed\n");
+                     return CHARDET_MEM_ALLOCATED_FAIL;
+                }
+
+                switch (detect_handledata (&d, "안녕하세요", &obj)) {
+                     case CHARDET_OUT_OF_MEMORY :
+                          fprintf (stderr, "On handle processing, occured out of memory\n");
+                          detect_obj_free (&obj);
+                          return CHARDET_OUT_OF_MEMORY;
+                     case CHARDET_NULL_OBJECT :
+                          fprintf (stderr,
+                                    "2st argument of chardet() is must memory allocation "
+                                    "with detect_obj_init API\n");
+                          return CHARDET_NULL_OBJECT;
+                }
+
+                printf ("encoding: %s, confidence: %f\n", obj->encoding, obj->confidence);
+                detect_obj_free (&obj);
             }
-
-            switch (detect_handledata (&d, "안녕하세요", &obj)) {
-                 case CHARDET_OUT_OF_MEMORY :
-                      fprintf (stderr, "On handle processing, occured out of memory\n");
-                      detect_obj_free (&obj);
-                      return CHARDET_OUT_OF_MEMORY;
-                 case CHARDET_NULL_OBJECT :
-                      fprintf (stderr,
-                                "2st argument of chardet() is must memory allocation "
-                                "with detect_obj_init API\n");
-                      return CHARDET_NULL_OBJECT;
-            }
-
-            printf ("encoding: %s, confidence: %f\n", obj->encoding, obj->confidence);
-            detect_obj_free (&obj);
             detect_destroy (&d);
 
            return 0;
