@@ -10,11 +10,9 @@ This program is under MPL 1.1 or LGPL 2.1
 libchardet is based on Mozilla Universal Charset Detector library and, detects
 the character set used to encode data.
 
-Original code was writed by Netscape Communications Corporation, and John
-Gardiner Myers &lt;jgmyers@proofpoint.com&gt; made independent Universal Detector
-code from Mozilla Browser.
+[Original code](http://lxr.mozilla.org/seamonkey/source/extensions/universalchardet/) was writed by Netscape Communications Corporation, Techniques used by universalchardet are described at &lt;http://www-archive.mozilla.org/projects/intl/UniversalCharsetDetection.html&gt;.
 
-libchardet based on John Gardiner Myers's code that call [Encode-Detect-1.01](http://search.cpan.org/~jgmyers/Encode-Detect-1.01/)
+libchardet see also John Gardiner Myers's [Encode-Detect-1.01](http://search.cpan.org/~jgmyers/Encode-Detect-1.01/)
 perl module, and added C wrapping API, and library build environment with libtool.
 
 From 1.0.5, libchardet was reflected single-byte charset detection confidence
