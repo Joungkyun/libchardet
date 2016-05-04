@@ -1,4 +1,6 @@
-/* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+/* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+ * vim600: et sw=2 ts=2 fdm=marker
+ */
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -51,6 +53,7 @@
 
 nsUniversalDetector::nsUniversalDetector()
 {
+  mNbspFound = PR_FALSE;
   mDone = PR_FALSE;
   mBestGuess = -1;   //illegal value as signal
   mInTag = PR_FALSE;
@@ -80,6 +83,7 @@ nsUniversalDetector::~nsUniversalDetector()
 void 
 nsUniversalDetector::Reset()
 {
+  mNbspFound = PR_FALSE;
   mDone = PR_FALSE;
   mBestGuess = -1;   //illegal value as signal
   mInTag = PR_FALSE;
@@ -202,8 +206,12 @@ nsresult nsUniversalDetector::HandleData(const char* aBuf, PRUint32 aLen)
     }
     else
     {
+      if (aBuf[i] == '\xA0')
+      {
+        mNbspFound = PR_TRUE;
+      }
       //ok, just pure ascii so far
-      if ( ePureAscii == mInputState &&
+      else if ( ePureAscii == mInputState &&
         (aBuf[i] == '\033' || (aBuf[i] == '{' && mLastChar == '~')) )
       {
         //found escape character or HZ "~{"
@@ -223,11 +231,16 @@ nsresult nsUniversalDetector::HandleData(const char* aBuf, PRUint32 aLen)
         return NS_ERROR_OUT_OF_MEMORY;
     }
     st = mEscCharSetProber->HandleData(aBuf, aLen);
+    mDone = PR_TRUE;
     if (st == eFoundIt)
     {
-      mDone = PR_TRUE;
       mDetectedCharset = mEscCharSetProber->GetCharSetName();
       mDetectedConfidence = mEscCharSetProber->GetConfidence();
+    }
+    else
+    {
+      mDetectedCharset = mNbspFound ? "ISO-8859-1" : "ASCII";
+      mDetectedConfidence = 1.0;
     }
     break;
   case eHighbyte:
@@ -246,9 +259,8 @@ nsresult nsUniversalDetector::HandleData(const char* aBuf, PRUint32 aLen)
 
   default:  //pure ascii
     mDone = PR_TRUE;
-    mDetectedCharset = "ASCII";
+    mDetectedCharset = mNbspFound ? "ISO-8859-1" : "ASCII";
     mDetectedConfidence = 1.0;
-    ;//do nothing here
   }
   return NS_OK;
 }

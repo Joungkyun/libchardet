@@ -4,6 +4,9 @@ $Id$
 
 *** 1.0.5
 
+2016/05/05 KST
+	- fixed #5 no detect control character on US-ASCII
+
 2016/05/04 KST
 	- fixed #1 separate model directory
 	- merge uchardet's improvement
