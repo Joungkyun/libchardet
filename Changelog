@@ -4,6 +4,9 @@ $Id$
 
 *** 1.0.5
 
+2016/05/05 KST
+	- #1 separate model directory
+
 2015/12/10 KST
 	- fixed man pages wrong macro bug (martin.gansser@gmail.com)
 
