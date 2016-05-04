@@ -41,7 +41,7 @@
 
 void  nsBig5Prober::Reset(void)
 {
-  mCodingSM->Reset(); 
+  mCodingSM->Reset();
   mState = eDetecting;
   mDistributionAnalyser.Reset();
 }

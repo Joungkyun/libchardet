@@ -68,7 +68,7 @@ typedef struct
   unsigned char *charToOrderMap;    // [256] table use to find a char's order
   char *precedenceMatrix;           // [SAMPLE_SIZE][SAMPLE_SIZE]; table to find a 2-char sequence's frequency
   int freqCharCount;                // The count of frequent characters.
-  float  mTypicalPositiveRatio;     // = freqSeqs / totalSeqs 
+  float  mTypicalPositiveRatio;     // = freqSeqs / totalSeqs
   PRBool keepEnglishLetter;         // says if this script contains English characters (not implemented)
   const char* charsetName;
 } SequenceModel;
@@ -76,7 +76,7 @@ typedef struct
 
 class nsSingleByteCharSetProber : public nsCharSetProber{
 public:
-  nsSingleByteCharSetProber(SequenceModel *model) 
+  nsSingleByteCharSetProber(SequenceModel *model)
     :mModel(model), mReversed(PR_FALSE), mNameProber(0) { Reset(); }
   nsSingleByteCharSetProber(SequenceModel *model, PRBool reversed, nsCharSetProber* nameProber)
     :mModel(model), mReversed(reversed), mNameProber(nameProber) { Reset(); }
@@ -87,7 +87,7 @@ public:
   virtual void      Reset(void);
   virtual float     GetConfidence(void);
   virtual void      SetOpion() {};
-  
+
   // This feature is not implemented yet. any current language model
   // contain this parameter as PR_FALSE. No one is looking at this
   // parameter or calling this method.
@@ -115,9 +115,9 @@ protected:
   PRUint32 mCtrlChar;
   //characters that fall in our sampling range
   PRUint32 mFreqChar;
-  
+
   // Optional auxiliary prober for name decision. created and destroyed by the GroupProber
-  nsCharSetProber* mNameProber; 
+  nsCharSetProber* mNameProber;
 
 };
 

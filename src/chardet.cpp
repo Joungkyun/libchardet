@@ -1,5 +1,3 @@
-/* vim600: et sw=2 ts=2 fdm=marker
- */
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -160,4 +158,4 @@ CHARDET_API short detect (const char *buf, DetectObj ** obj) {
  * End:
  * vim600: noet sw=4 ts=4 fdm=marker
  * vim<600: noet sw=4 ts=4
- */ 
+ */

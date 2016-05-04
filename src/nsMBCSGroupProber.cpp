@@ -43,7 +43,7 @@
 #include "nsMBCSGroupProber.h"
 
 #if defined(DEBUG_chardet) || defined(DEBUG_jgmyers)
-const char *ProberName[] = 
+const char *ProberName[] =
 {
   "UTF8",
   "SJIS",
@@ -212,7 +212,7 @@ void nsMBCSGroupProber::DumpStatus()
 {
   PRUint32 i;
   float cf;
-  
+
   GetConfidence();
   for (i = 0; i < NUM_OF_PROBERS; i++)
   {

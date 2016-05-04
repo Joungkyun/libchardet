@@ -58,7 +58,7 @@ public:
 
 protected:
   void      GetDistribution(PRUint32 aCharLen, const char* aStr);
-  
+
   nsCodingStateMachine* mCodingSM[NUM_OF_ESC_CHARSETS] ;
   PRUint32    mActiveSM;
   nsProbingState mState;

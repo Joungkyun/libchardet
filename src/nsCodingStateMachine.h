@@ -44,13 +44,13 @@
 typedef enum {
    eStart = 0,
    eError = 1,
-   eItsMe = 2 
+   eItsMe = 2
 } nsSMState;
 
 #define GETCLASS(c) GETFROMPCK(((unsigned char)(c)), mModel->classTable)
 
 //state machine model
-typedef struct 
+typedef struct
 {
   nsPkgInt classTable;
   PRUint32 classFactor;
@@ -69,8 +69,8 @@ public:
     //for each byte we get its class , if it is first byte, we also get byte length
     PRUint32 byteCls = GETCLASS(c);
     if (mCurrentState == eStart)
-    { 
-      mCurrentBytePos = 0; 
+    {
+      mCurrentBytePos = 0;
       mCurrentCharLen = mModel->charLenTable[byteCls];
     }
     //from byte's class and stateTable, we get its next state

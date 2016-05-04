@@ -76,7 +76,7 @@ nsProbingState nsEscCharSetProber::HandleData(const char* aBuf, PRUint32 aLen)
   {
     for (j = mActiveSM-1; j>= 0; j--)
     {
-      //byte is feed to all active state machine 
+      //byte is feed to all active state machine
       codingState = mCodingSM[j]->NextState(aBuf[i]);
       if (codingState == eError)
       {
