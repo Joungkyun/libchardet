@@ -1,4 +1,6 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+ * vim600: et sw=2 ts=2 fdm=marker
+ */
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -70,7 +72,7 @@ nsSBCSGroupProber::nsSBCSGroupProber()
   }
   else // One or more is null. avoid any Hebrew probing, null them all
   {
-    for (PRUint32 i = 10; i <= 15; ++i)
+    for (PRUint32 i = 10; i <= 12; ++i)
     { 
       delete mProbers[i]; 
       mProbers[i] = 0; 
