@@ -87,8 +87,8 @@ nsSBCSGroupProber::nsSBCSGroupProber()
   mProbers[17] = new nsSingleByteCharSetProber(&Latin6_ArabicModel);
   mProbers[18] = new nsSingleByteCharSetProber(&Windows1256_ArabicModel);
 
-  mProbers[19] = new nsSingleByteCharSetProber(&Latin1_DanishModel);
-  mProbers[20] = new nsSingleByteCharSetProber(&Latin15_DanishModel);
+  mProbers[19] = new nsSingleByteCharSetProber(&Latin15_DanishModel);
+  mProbers[20] = new nsSingleByteCharSetProber(&Latin1_DanishModel);
   mProbers[21] = new nsSingleByteCharSetProber(&Windows1252_DanishModel);
 
   mProbers[22] = new nsSingleByteCharSetProber(&Latin3_EsperantoModel);
