@@ -84,7 +84,7 @@ libchardet_la_SOURCES = CharDistribution.cpp JpCntx.cpp \
 		tables/LangGermanModel.cpp \
 		tables/LangSpanishModel.cpp \
 		tables/LangTurkishModel.cpp \
-		tables/LangVietnameseModel.cpp
+		tables/LangVietnameseModel.cpp \
 		nsBig5Prober.cpp \
 		nsCharSetProber.cpp nsEUCJPProber.cpp nsEUCKRProber.cpp \
 		nsEUCTWProber.cpp nsEscCharsetProber.cpp nsEscSM.cpp \

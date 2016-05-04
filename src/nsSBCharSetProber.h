@@ -119,21 +119,39 @@ protected:
 
 };
 
-
-extern SequenceModel Koi8rModel;
-extern SequenceModel Win1251Model;
-extern SequenceModel Latin5Model;
+extern SequenceModel Koi8r_CyrillicModel;
+extern SequenceModel Win1251_CyrillicModel;
+extern SequenceModel Latin5_CyrillicModel;
 extern SequenceModel MacCyrillicModel;
-extern SequenceModel Ibm866Model;
-extern SequenceModel Ibm855Model;
-extern SequenceModel Latin7Model;
-extern SequenceModel Win1253Model;
-extern SequenceModel Latin5BulgarianModel;
-extern SequenceModel Win1251BulgarianModel;
-extern SequenceModel Latin2HungarianModel;
-extern SequenceModel Win1250HungarianModel;
-extern SequenceModel TIS620ThaiModel;
-extern SequenceModel Win1255Model;
+extern SequenceModel Ibm866_CyrillicModel;
+extern SequenceModel Ibm855_CyrillicModel;
+extern SequenceModel Latin7_GreekModel;
+extern SequenceModel Win1253_GreekModel;
+extern SequenceModel Latin5_BulgarianModel;
+extern SequenceModel Win1251_BulgarianModel;
+extern SequenceModel Latin2_HungarianModel;
+extern SequenceModel Win1250_HungarianModel;
+extern SequenceModel TIS620_ThaiModel;
+extern SequenceModel Latin11_ThaiModel;
+extern SequenceModel Win1255_HebrewModel;
+extern SequenceModel Latin6_ArabicModel;
+extern SequenceModel Windows1256_ArabicModel;
+extern SequenceModel Latin1_DanishModel;
+extern SequenceModel Latin15_DanishModel;
+extern SequenceModel Windows1252_DanishModel;
+extern SequenceModel Latin3_EsperantoModel;
+extern SequenceModel Latin1_FrenchModel;
+extern SequenceModel Latin15_FrenchModel;
+extern SequenceModel Windows1252_FrenchModel;
+extern SequenceModel Latin1_GermanModel;
+extern SequenceModel Windows1252_GermanModel;
+extern SequenceModel Latin1_SpanishModel;
+extern SequenceModel Latin15_SpanishModel;
+extern SequenceModel Windows1252_SpanishModel;
+extern SequenceModel Latin3_TurkishModel;
+extern SequenceModel Latin9_TurkishModel;
+extern SequenceModel Viscii_VietnameseModel;
+extern SequenceModel Windows1258_VietnameseModel;
 
 #endif /* nsSingleByteCharSetProber_h__ */
 

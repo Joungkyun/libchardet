@@ -47,7 +47,7 @@
 nsSBCSGroupProber::nsSBCSGroupProber()
 {
   mProbers[0] = new nsSingleByteCharSetProber(&Win1251_CyrillicModel);
-  mProbers[1] = new nsSingleByteCharSetProber(&Koi8_CyrillicrModel);
+  mProbers[1] = new nsSingleByteCharSetProber(&Koi8r_CyrillicModel);
   mProbers[2] = new nsSingleByteCharSetProber(&Latin5_CyrillicModel);
   mProbers[3] = new nsSingleByteCharSetProber(&MacCyrillicModel);
   mProbers[4] = new nsSingleByteCharSetProber(&Ibm866_CyrillicModel);
@@ -55,7 +55,7 @@ nsSBCSGroupProber::nsSBCSGroupProber()
   mProbers[6] = new nsSingleByteCharSetProber(&Latin7_GreekModel);
   mProbers[7] = new nsSingleByteCharSetProber(&Win1253_GreekModel);
   mProbers[8] = new nsSingleByteCharSetProber(&Latin5_BulgarianModel);
-  mProbers[9] = new nsSingleByteCharSetProber(&Win125_1BulgarianModel);
+  mProbers[9] = new nsSingleByteCharSetProber(&Win1251_BulgarianModel);
 
   nsHebrewProber *hebprober = new nsHebrewProber();
   // Notice: Any change in these indexes - 10,11,12 must be reflected
