@@ -68,11 +68,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define LIBCHARDET_MAJOR_VER 1
-#define LIBCHARDET_MINOR_VER 0
-#define LIBCHARDET_PATCH_VER 0
-#define LIBCHARDET_VER "1.0.0"
-
 #define CHARDET_OUT_OF_MEMORY -128
 #define CHARDET_MEM_ALLOCATED_FAIL -127
 
@@ -80,7 +75,7 @@
 #define CHARDET_NO_RESULT   1
 #define CHARDET_NULL_OBJECT 2
 
-// support detect_r and detect_handledata_r API
+// whether to support detect_r and detect_handledata_r API
 #define CHARDET_BINARY_SAFE 1
 
 #ifdef __cplusplus
