@@ -29,14 +29,16 @@ See also test directory of source code
 
        int main (void) {
             DetectObj *obj;
-			char * str = "안녕하세요";
+            char * str = "안녕하세요";
 
             if ( (obj = detect_obj_init ()) == NULL ) {
                  fprintf (stderr, "Memory Allocation failed\n");
                  return CHARDET_MEM_ALLOCATED_FAIL;
             }
 
-            switch (detect_r (str, strlen (str), &obj)) {
+            //switch (detect (str, &obj))               // for before 1.0.5. This API is deprecated on 1.0.5
+            switch (detect_r (str, strlen (str), &obj)) // for from 1.0.5
+            {
                  case CHARDET_OUT_OF_MEMORY :
                       fprintf (stderr, "On handle processing, occured out of memory\n");
                       detect_obj_free (&obj);
@@ -63,7 +65,7 @@ or looping code
        int main (void) {
             Detect    * d;
             DetectObj * obj;
-			char * str = "안녕하세요";
+            char * str = "안녕하세요";
 
             if ( (d = detect_init ()) == NULL ) {
                  fprintf (stderr, "chardet handle initialize failed\n");
@@ -78,7 +80,9 @@ or looping code
                      return CHARDET_MEM_ALLOCATED_FAIL;
                 }
 
-                switch (detect_handledata_r (&d, str, strlen (str), &obj)) {
+                //switch (detect_handledata (&d, str,, &obj)) // for before 1.0.5. This API is deprecated on 1.0.5
+                switch (detect_handledata_r (&d, str, strlen (str), &obj)) // for from 1.0.5
+                {
                      case CHARDET_OUT_OF_MEMORY :
                           fprintf (stderr, "On handle processing, occured out of memory\n");
                           detect_obj_free (&obj);
