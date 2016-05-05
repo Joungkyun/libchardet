@@ -6,6 +6,10 @@ $Id$
 
 2016/05/05 KST
 	- fixed #5 no detect control character on US-ASCII
+	- fixed #7 wrong detect Danash ISO-8859-15
+	- fixed #8 fixed binary safe problems
+	  . replace detect to detect_r
+	  . replace detect_handledata to detect_handledata_r
 
 2016/05/04 KST
 	- fixed #1 separate model directory

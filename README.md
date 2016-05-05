@@ -29,13 +29,14 @@ See also test directory of source code
 
        int main (void) {
             DetectObj *obj;
+			char * str = "안녕하세요";
 
             if ( (obj = detect_obj_init ()) == NULL ) {
                  fprintf (stderr, "Memory Allocation failed\n");
                  return CHARDET_MEM_ALLOCATED_FAIL;
             }
 
-            switch (detect ("안녕하세요", &obj)) {
+            switch (detect_r (str, strlen (str), &obj)) {
                  case CHARDET_OUT_OF_MEMORY :
                       fprintf (stderr, "On handle processing, occured out of memory\n");
                       detect_obj_free (&obj);
@@ -62,6 +63,7 @@ or looping code
        int main (void) {
             Detect    * d;
             DetectObj * obj;
+			char * str = "안녕하세요";
 
             if ( (d = detect_init ()) == NULL ) {
                  fprintf (stderr, "chardet handle initialize failed\n");
@@ -76,7 +78,7 @@ or looping code
                      return CHARDET_MEM_ALLOCATED_FAIL;
                 }
 
-                switch (detect_handledata (&d, "안녕하세요", &obj)) {
+                switch (detect_handledata_r (&d, str, strlen (str), &obj)) {
                      case CHARDET_OUT_OF_MEMORY :
                           fprintf (stderr, "On handle processing, occured out of memory\n");
                           detect_obj_free (&obj);

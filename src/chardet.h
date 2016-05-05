@@ -101,8 +101,10 @@ extern "C" {
 	CHARDET_API void detect_reset (Detect **);
 	CHARDET_API void detect_dataend (Detect **);
 	CHARDET_API short detect_handledata (Detect **, const char *, DetectObj **);
+	CHARDET_API short detect_handledata_r (Detect **, const char *, size_t, DetectObj **);
 	CHARDET_API void detect_destroy (Detect **);
 	CHARDET_API short detect (const char *, DetectObj **);
+	CHARDET_API short detect_r (const char *, size_t, DetectObj **);
 #ifdef __cplusplus
 };
 #endif

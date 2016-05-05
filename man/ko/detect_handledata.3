@@ -1,22 +1,30 @@
-.TH detect_handledata 3 2015-12-11 "libchardet manuals"
+.TH detect_handledata 3 2016-05-05 "libchardet manuals"
 .\" Process with
 .\" nroff -man detect_handledata.3
-.\" 2015-12-11 JoungKyun Kim <htt://oops.org>
+.\" 2016-05-05 JoungKyun.Kim <htt://oops.org>
 .\" $Id$
 
 .SH 이름
-detect_handledata \- 문자셋과 정확도를 측정
+detect_handledata, detect_handledata_r \- 문자셋과 정확도를 측정
 
 .SH 사용법
 .B "#include <chardet.h>"
 .sp
-.BI "short chardet_handledata (Detect ** handle, const char * inbuf, DetectObj ** outbuf);"
+.BI "short detect_handledata (Detect ** handle, const char * inbuf, DetectObj ** outbuf);"
+.sp
+.BI "short detect_handledata_r (Detect ** handle, const char * inbuf, size_t inlen, DetectObj ** outbuf);"
 
 .SH 설명
 .B inbuf
 의 문자셋과 정확도를
 .B outbuf에 저장한다.
 
+.BI detect_handledata
+API는 binary safe 문제로 더이상 사용을 권장하지 않습니다.
+.BI detect_handledata_r
+API를 이용하십시오.
+
+.SS API 아규먼트
 .TP
 .B handle
 .br
@@ -27,6 +35,10 @@ api에 의하여 할당된 detect handle resource.
 .B inbuf
 .br
 문자셋과 정확도를 측정할 입력 문자열
+
+.B inlen
+.br
+문자셋과 정확도를 측정할 입력 문자열의 길이
 
 .TP
 .B outbuf
@@ -105,7 +117,9 @@ int main (void) {
 			return CHARDET_MEM_ALLOCATED_FAIL;
 		}
 
-		switch (detect_handledata (&d, "안녕하세요", &obj)) {
+		//switch (detect_handledata (&d, str[i], &obj))
+		switch (detect_handledata_r (&d, str[i], strlen (str[i]), &obj))
+		{
 			case CHARDET_OUT_OF_MEMORY :
 				fprintf (stderr, "On handle processing, occured out of memory\\n");
 				detect_obj_free (&obj);

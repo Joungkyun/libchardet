@@ -1,26 +1,40 @@
 .TH detect 3 2015-12-11 "libchardet manuals"
 .\" Process with
 .\" nroff -man detect.3
-.\" 2015-12-11 JoungKyun Kim <htt://oops.org>
+.\" 2016-05-05 JoungKyun.Kim <htt://oops.org>
 .\" $Id$
 
 .SH NAME
-detect \- Detecting character set and measuring accuracy of charset
+detect, detect_r \- Detecting character set and measuring accuracy of charset
 
 .SH SYNOPSIS
 .B "#include <chardet.h>"
 .sp
-.BI "short chardet (char * inbuf, DetectObj ** outbuf);"
+.BI "short detect (char * inbuf, DetectObj ** outbuf);"
+.sp
+.BI "short detect_r (char * inbuf, size_t inlen, DetectObj ** outbuf);"
 
 .SH DESCRIPTION
 Storing charset and accuracy of
 .B inbuf to
 .B outbuf
 
+The
+.BI detect
+API is deprecated becase this api is not binary safe. Use or replace to
+.BI detect_r
+api.
+
+.SS Arguments:
 .TP
 .B inbuf
 .br
 input string for detecting
+
+.TP
+.B inlen
+.br
+length of input string for detecting
 
 .TP
 .B outbuf
@@ -78,13 +92,16 @@ at internal API
 
 int main (void) {
 	DetectObj *obj;
+	char * checkstr = "안녕하세요";
 
 	if ( (obj = detect_obj_init ()) == NULL ) {
 		fprintf (stderr, "Memory Allocation failed\\n");
 		return CHARDET_MEM_ALLOCATED_FAIL;
 	}
 
-	switch (detect ("안녕하세요", &obj)) {
+	//switch (detect (checkstr, &obj))
+	switch (detect_r (checkstr, strlen (checkstr), &obj))
+	{
 		case CHARDET_OUT_OF_MEMORY :
 			fprintf (stderr, "On handle processing, occured out of memory\\n");
 			detect_obj_free (&obj);
