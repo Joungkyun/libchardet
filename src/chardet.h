@@ -80,6 +80,8 @@
 #define CHARDET_NO_RESULT   1
 #define CHARDET_NULL_OBJECT 2
 
+// support detect_r and detect_handledata_r API
+#define CHARDET_BINARY_SAFE 1
 
 #ifdef __cplusplus
 extern "C" {
