@@ -96,6 +96,9 @@ or looping code
 
                 printf ("encoding: %s, confidence: %f\n", obj->encoding, obj->confidence);
                 detect_obj_free (&obj);
+
+                if ( 1 )
+                    break;
             }
             detect_destroy (&d);
 
