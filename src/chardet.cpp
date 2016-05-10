@@ -38,7 +38,8 @@
 
 class Detector: public nsUniversalDetector {
 	public:
-		Detector () {};
+		Detector ()
+		: nsUniversalDetector (NS_FILTER_ALL) {}
 		virtual ~Detector () {}
 		const char *getCharsetName () { return mDetectedCharset; }
 		float getConfidence () { return mDetectedConfidence; }

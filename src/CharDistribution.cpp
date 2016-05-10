@@ -52,7 +52,7 @@
 float CharDistributionAnalysis::GetConfidence()
 {
   //if we didn't receive any character in our consideration range, return negative answer
-  if (mTotalChars <= 0)
+  if (mTotalChars <= 0 || mFreqChars <= mDataThreshold)
     return SURE_NO;
 
   if (mTotalChars != mFreqChars) {

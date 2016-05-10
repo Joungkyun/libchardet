@@ -48,8 +48,10 @@
 
 class nsGB18030Prober: public nsCharSetProber {
 public:
-  nsGB18030Prober(void){mCodingSM = new nsCodingStateMachine(&GB18030SMModel);
-                      Reset();};
+  nsGB18030Prober(PRBool aIsPreferredLanguage)
+    :mIsPreferredLanguage(aIsPreferredLanguage)
+  {mCodingSM = new nsCodingStateMachine(&GB18030SMModel);
+    Reset();}
   virtual ~nsGB18030Prober(void){delete mCodingSM;};
   nsProbingState HandleData(const char* aBuf, PRUint32 aLen);
   const char* GetCharSetName() {return "GB18030";};
@@ -67,7 +69,7 @@ protected:
   //GB2312ContextAnalysis mContextAnalyser;
   GB2312DistributionAnalysis mDistributionAnalyser;
   char mLastChar[2];
-
+  PRBool mIsPreferredLanguage;
 };
 
 

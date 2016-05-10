@@ -1,8 +1,11 @@
 Mozilla's Universal Charset Detector C/C++ library
 
-$Id$
+$Id: $
 
 *** 1.0.5
+
+2016/05/11 KST
+	- fixed #6 can not detect EUC extended area
 
 2016/05/05 KST
 	- fixed #5 no detect control character on US-ASCII
