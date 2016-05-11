@@ -36,8 +36,13 @@ See also test directory of source code
                  return CHARDET_MEM_ALLOCATED_FAIL;
             }
 
-            //switch (detect (str, &obj))               // for before 1.0.5. This API is deprecated on 1.0.5
-            switch (detect_r (str, strlen (str), &obj)) // for from 1.0.5
+       #ifndef CHARDET_BINARY_SAFE 
+            // before 1.0.5. This API is deprecated on 1.0.5
+            switch (detect (str, &obj))
+       #else
+            // from 1.0.5
+            switch (detect_r (str, strlen (str), &obj))
+       #endif
             {
                  case CHARDET_OUT_OF_MEMORY :
                       fprintf (stderr, "On handle processing, occured out of memory\n");
@@ -80,8 +85,13 @@ or looping code
                      return CHARDET_MEM_ALLOCATED_FAIL;
                 }
 
-                //switch (detect_handledata (&d, str,, &obj)) // for before 1.0.5. This API is deprecated on 1.0.5
-                switch (detect_handledata_r (&d, str, strlen (str), &obj)) // for from 1.0.5
+       #ifndef CHARDET_BINARY_SAFE 
+                // before 1.0.5. This API is deprecated on 1.0.5
+                switch (detect_handledata (&d, str,, &obj))
+       #else
+                // from 1.0.5
+                switch (detect_handledata_r (&d, str, strlen (str), &obj))
+       #endif
                 {
                      case CHARDET_OUT_OF_MEMORY :
                           fprintf (stderr, "On handle processing, occured out of memory\n");
