@@ -39,7 +39,12 @@ int main (void) {
 			continue;
 		}
 
-		if ( detect_handledata (&d, str[i], &obj) == CHARDET_OUT_OF_MEMORY ) {
+#ifdef CHARDET_BINARY_SAFE
+		if ( detect_handledata_r (&d, str[i], strlen (str[i]), &obj) == CHARDET_OUT_OF_MEMORY )
+#else
+		if ( detect_handledata (&d, str[i], &obj) == CHARDET_OUT_OF_MEMORY )
+#endif
+		{
 			fprintf (stderr, "On handle processing, occured out of memory\n");
 			return CHARDET_OUT_OF_MEMORY;
 		}
