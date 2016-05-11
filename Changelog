@@ -5,6 +5,7 @@ $Id: $
 *** 1.0.5
 
 2016/05/11 KST
+	- release 1.0.5
 	- fixed #6 can not detect EUC extended area
 
 2016/05/05 KST
