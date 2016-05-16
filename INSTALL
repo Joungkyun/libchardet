@@ -17,6 +17,10 @@ $Id$
    Mageia Cauldron :
            urpmi libchardet libchardet-devel
 
+   Arch / ChakraOS :
+           pacman -Syu; pacman -S libchardet
+
+
 2. Source compile
 
    2-1. Quick Install
