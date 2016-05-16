@@ -19,6 +19,9 @@ From 1.0.5, libchardet was reflected single-byte charset detection confidence
 algorithm of [uchardet](https://github.com/BYVoid/uchardet/) and new language models.
 (Arabic, Danish, Esperanto, German, Spanish, Turkish, Vietnamese)
 
+## Installation
+
+See also [INSTALL](INSTALL) document
 
 ## Sample Codes
 
