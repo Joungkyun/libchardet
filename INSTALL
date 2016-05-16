@@ -5,26 +5,39 @@ Author: JoungKyun.Kim <http://oops.org>
 
 $Id$
 
+1. Distribution support
 
-1. Quick Install
+   Ubuntu: from 14.04
+           apt-get install libchardet1 libchardet-dev
 
-   shell> ./configure
-   shell> make
-   shell> make install
+   Fedora: from Fedoar 23
+           dnf install libchardet libchardet-devel
+           yum install libchardet libchardet-devel
 
-2. configure
+   Mageia Cauldron :
+           urpmi libchardet libchardet-devel
 
-   libchardet used GNU autoconf and no option except default option of gnu configure.
-   And, you can use follow environment variables.
+2. Source compile
 
-   CFLAGS, CXXFLAGS, DEFS, LIBS, LDFLAGS, CPPFLAGS, and so on.
+   2-1. Quick Install
 
-3. make
+        shell> ./configure
+        shell> make
+        shell> make install
 
-   you can enable with -j option.
+   2-2. configure
 
-4. make install
+        libchardet used GNU autoconf and no option except default option of
+        gnu configure. And, you can use follow environment variables.
 
-   If use with DESTDIR environment, you can test install where you want.
-   for example, execute `make DESTDIR=PATH install`
+        CFLAGS, CXXFLAGS, DEFS, LIBS, LDFLAGS, CPPFLAGS, and so on.
+
+   2-3. make
+
+        you can enable with -j option.
+
+   2-4. make install
+
+        If use with DESTDIR environment, you can test install where you want.
+        for example, execute `make DESTDIR=PATH install`
 
