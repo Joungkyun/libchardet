@@ -3,10 +3,11 @@
 #
 
 CC     = gcc
-CFLAGS = `chardet-config --cflags`
-DEFS   = `chardet-config --defs`
-LIBS   = `chardet-config --libs`
-#LIBS   = -L../src/.libs -Wl,-rpath=../src/.libs -lchardet -lstdc++
+#CFLAGS = `chardet-config --cflags`
+#DEFS   = `chardet-config --defs`
+#LIBS   = `chardet-config --libs`
+CFLAGS = -I../src -I../include
+LIBS   = -L../src/.libs -Wl,-rpath=../src/.libs -lchardet -lstdc++
 
 all: sample sample1
 
