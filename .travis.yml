@@ -1,0 +1,32 @@
+language: c
+
+compiler:
+    - gcc
+    - clang
+
+addons:
+    apt:
+        packages:
+            - automake
+            - autoconf
+            - gdb
+            - libtool
+            - autotools-dev
+            - valgrind
+
+
+matrix:
+    exclude:
+        - compiler: "gcc"
+        - compiler: "clang"
+    include:
+        - compiler: "gcc"
+          env: CFLAGS="-g -O2 -Wall"
+        - compiler: "clang"
+          env: CFLAGS="-g -O2 -Wall"
+
+script:
+    - ./configure && make
+
+notifications:
+      email: false
