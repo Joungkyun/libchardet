@@ -121,6 +121,6 @@ or looping code
 ```
 
 ## APIs
-  * PHP Extension    - http://ftp.oops.org/pub/oops/php/extensions/mod_chardet/
+  * PHP Extension    - https://github.com/OOPS-ORG-PHP/mod_chardet
   * PYTHON C Binding - http://ftp.oops.org/pub/oops/python/chardet/
   * PERL             - http://search.cpan.org/~jgmyers/Encode-Detect-1.01/Detect.pm
