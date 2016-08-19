@@ -6,7 +6,7 @@
 AC_PREREQ(2.59)
 AC_INIT([libchardet], [1.0.6], [https://github.com/Joungkyun/libchardet/issues])
 AC_CONFIG_AUX_DIR([tools])
-AM_INIT_AUTOMAKE([-Wall -Werror -Wno-override foreign no-dependencies])
+AM_INIT_AUTOMAKE([1.12.0 -Wall -Werror -Wno-override foreign no-dependencies])
 AM_MAINTAINER_MODE
 
 AC_CONFIG_SRCDIR([src/nsUniversalDetector.h])
@@ -34,7 +34,7 @@ SONAME_INFO="$SONAME_VALUE:$SONAME_REVISION:$SONAME_MINOR"
 AC_PROG_CC
 AC_PROG_CXX
 AC_PROG_CPP
-AM_PROG_AR
+m4_ifdef([AM_PROG_AR], [AM_PROG_AR]) dnl Workaround for Automake 1.11
 AX_GL_VISIBILITY
 AC_PROG_INSTALL
 AC_PROG_LN_S
