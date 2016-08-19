@@ -6,7 +6,7 @@
 AC_PREREQ(2.59)
 AC_INIT([libchardet], [1.0.6], [https://github.com/Joungkyun/libchardet/issues])
 AC_CONFIG_AUX_DIR([tools])
-AM_INIT_AUTOMAKE([1.12.0 -Wall -Werror -Wno-override foreign no-dependencies])
+AM_INIT_AUTOMAKE([1.12.0 -Wall -Werror -Wno-override foreign no-dependencies subdir-objects])
 AM_MAINTAINER_MODE
 
 AC_CONFIG_SRCDIR([src/nsUniversalDetector.h])

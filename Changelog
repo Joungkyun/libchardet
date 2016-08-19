@@ -2,6 +2,9 @@ Mozilla's Universal Charset Detector C/C++ library
 
 
 *** 1.0.6
+2016/08/20 KST
+	- fixed #9 configure.ac needs subdir-objects
+	- fixed #10 autogen failure because AM_PROG_AR with automake 1.11.1
 
 
 *** 1.0.5

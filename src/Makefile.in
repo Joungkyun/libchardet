@@ -154,21 +154,23 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libchardet_la_LIBADD =
+am__dirstamp = $(am__leading_dot)dirstamp
 am_libchardet_la_OBJECTS = libchardet_la-CharDistribution.lo \
-	libchardet_la-JpCntx.lo libchardet_la-LangBulgarianModel.lo \
-	libchardet_la-LangCyrillicModel.lo \
-	libchardet_la-LangGreekModel.lo \
-	libchardet_la-LangHebrewModel.lo \
-	libchardet_la-LangHungarianModel.lo \
-	libchardet_la-LangThaiModel.lo \
-	libchardet_la-LangArabicModel.lo \
-	libchardet_la-LangDanishModel.lo \
-	libchardet_la-LangEsperantoModel.lo \
-	libchardet_la-LangFrenchModel.lo \
-	libchardet_la-LangGermanModel.lo \
-	libchardet_la-LangSpanishModel.lo \
-	libchardet_la-LangTurkishModel.lo \
-	libchardet_la-LangVietnameseModel.lo \
+	libchardet_la-JpCntx.lo \
+	tables/libchardet_la-LangBulgarianModel.lo \
+	tables/libchardet_la-LangCyrillicModel.lo \
+	tables/libchardet_la-LangGreekModel.lo \
+	tables/libchardet_la-LangHebrewModel.lo \
+	tables/libchardet_la-LangHungarianModel.lo \
+	tables/libchardet_la-LangThaiModel.lo \
+	tables/libchardet_la-LangArabicModel.lo \
+	tables/libchardet_la-LangDanishModel.lo \
+	tables/libchardet_la-LangEsperantoModel.lo \
+	tables/libchardet_la-LangFrenchModel.lo \
+	tables/libchardet_la-LangGermanModel.lo \
+	tables/libchardet_la-LangSpanishModel.lo \
+	tables/libchardet_la-LangTurkishModel.lo \
+	tables/libchardet_la-LangVietnameseModel.lo \
 	libchardet_la-nsBig5Prober.lo libchardet_la-nsCharSetProber.lo \
 	libchardet_la-nsEUCJPProber.lo libchardet_la-nsEUCKRProber.lo \
 	libchardet_la-nsEUCTWProber.lo \
@@ -501,12 +503,31 @@ clean-libLTLIBRARIES:
 	  echo rm -f $${locs}; \
 	  rm -f $${locs}; \
 	}
+tables/$(am__dirstamp):
+	@$(MKDIR_P) tables
+	@: > tables/$(am__dirstamp)
+tables/libchardet_la-LangBulgarianModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangCyrillicModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangGreekModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangHebrewModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangHungarianModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangThaiModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangArabicModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangDanishModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangEsperantoModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangFrenchModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangGermanModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangSpanishModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangTurkishModel.lo: tables/$(am__dirstamp)
+tables/libchardet_la-LangVietnameseModel.lo: tables/$(am__dirstamp)
 
 libchardet.la: $(libchardet_la_OBJECTS) $(libchardet_la_DEPENDENCIES) $(EXTRA_libchardet_la_DEPENDENCIES) 
 	$(AM_V_CXXLD)$(CXXLINK) -rpath $(libdir) $(libchardet_la_OBJECTS) $(libchardet_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
+	-rm -f tables/*.$(OBJEXT)
+	-rm -f tables/*.lo
 
 distclean-compile:
 	-rm -f *.tab.c
@@ -526,47 +547,47 @@ libchardet_la-CharDistribution.lo: CharDistribution.cpp
 libchardet_la-JpCntx.lo: JpCntx.cpp
 	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-JpCntx.lo `test -f 'JpCntx.cpp' || echo '$(srcdir)/'`JpCntx.cpp
 
-libchardet_la-LangBulgarianModel.lo: tables/LangBulgarianModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangBulgarianModel.lo `test -f 'tables/LangBulgarianModel.cpp' || echo '$(srcdir)/'`tables/LangBulgarianModel.cpp
+tables/libchardet_la-LangBulgarianModel.lo: tables/LangBulgarianModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangBulgarianModel.lo `test -f 'tables/LangBulgarianModel.cpp' || echo '$(srcdir)/'`tables/LangBulgarianModel.cpp
 
-libchardet_la-LangCyrillicModel.lo: tables/LangCyrillicModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangCyrillicModel.lo `test -f 'tables/LangCyrillicModel.cpp' || echo '$(srcdir)/'`tables/LangCyrillicModel.cpp
+tables/libchardet_la-LangCyrillicModel.lo: tables/LangCyrillicModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangCyrillicModel.lo `test -f 'tables/LangCyrillicModel.cpp' || echo '$(srcdir)/'`tables/LangCyrillicModel.cpp
 
-libchardet_la-LangGreekModel.lo: tables/LangGreekModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangGreekModel.lo `test -f 'tables/LangGreekModel.cpp' || echo '$(srcdir)/'`tables/LangGreekModel.cpp
+tables/libchardet_la-LangGreekModel.lo: tables/LangGreekModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangGreekModel.lo `test -f 'tables/LangGreekModel.cpp' || echo '$(srcdir)/'`tables/LangGreekModel.cpp
 
-libchardet_la-LangHebrewModel.lo: tables/LangHebrewModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangHebrewModel.lo `test -f 'tables/LangHebrewModel.cpp' || echo '$(srcdir)/'`tables/LangHebrewModel.cpp
+tables/libchardet_la-LangHebrewModel.lo: tables/LangHebrewModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangHebrewModel.lo `test -f 'tables/LangHebrewModel.cpp' || echo '$(srcdir)/'`tables/LangHebrewModel.cpp
 
-libchardet_la-LangHungarianModel.lo: tables/LangHungarianModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangHungarianModel.lo `test -f 'tables/LangHungarianModel.cpp' || echo '$(srcdir)/'`tables/LangHungarianModel.cpp
+tables/libchardet_la-LangHungarianModel.lo: tables/LangHungarianModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangHungarianModel.lo `test -f 'tables/LangHungarianModel.cpp' || echo '$(srcdir)/'`tables/LangHungarianModel.cpp
 
-libchardet_la-LangThaiModel.lo: tables/LangThaiModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangThaiModel.lo `test -f 'tables/LangThaiModel.cpp' || echo '$(srcdir)/'`tables/LangThaiModel.cpp
+tables/libchardet_la-LangThaiModel.lo: tables/LangThaiModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangThaiModel.lo `test -f 'tables/LangThaiModel.cpp' || echo '$(srcdir)/'`tables/LangThaiModel.cpp
 
-libchardet_la-LangArabicModel.lo: tables/LangArabicModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangArabicModel.lo `test -f 'tables/LangArabicModel.cpp' || echo '$(srcdir)/'`tables/LangArabicModel.cpp
+tables/libchardet_la-LangArabicModel.lo: tables/LangArabicModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangArabicModel.lo `test -f 'tables/LangArabicModel.cpp' || echo '$(srcdir)/'`tables/LangArabicModel.cpp
 
-libchardet_la-LangDanishModel.lo: tables/LangDanishModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangDanishModel.lo `test -f 'tables/LangDanishModel.cpp' || echo '$(srcdir)/'`tables/LangDanishModel.cpp
+tables/libchardet_la-LangDanishModel.lo: tables/LangDanishModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangDanishModel.lo `test -f 'tables/LangDanishModel.cpp' || echo '$(srcdir)/'`tables/LangDanishModel.cpp
 
-libchardet_la-LangEsperantoModel.lo: tables/LangEsperantoModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangEsperantoModel.lo `test -f 'tables/LangEsperantoModel.cpp' || echo '$(srcdir)/'`tables/LangEsperantoModel.cpp
+tables/libchardet_la-LangEsperantoModel.lo: tables/LangEsperantoModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangEsperantoModel.lo `test -f 'tables/LangEsperantoModel.cpp' || echo '$(srcdir)/'`tables/LangEsperantoModel.cpp
 
-libchardet_la-LangFrenchModel.lo: tables/LangFrenchModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangFrenchModel.lo `test -f 'tables/LangFrenchModel.cpp' || echo '$(srcdir)/'`tables/LangFrenchModel.cpp
+tables/libchardet_la-LangFrenchModel.lo: tables/LangFrenchModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangFrenchModel.lo `test -f 'tables/LangFrenchModel.cpp' || echo '$(srcdir)/'`tables/LangFrenchModel.cpp
 
-libchardet_la-LangGermanModel.lo: tables/LangGermanModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangGermanModel.lo `test -f 'tables/LangGermanModel.cpp' || echo '$(srcdir)/'`tables/LangGermanModel.cpp
+tables/libchardet_la-LangGermanModel.lo: tables/LangGermanModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangGermanModel.lo `test -f 'tables/LangGermanModel.cpp' || echo '$(srcdir)/'`tables/LangGermanModel.cpp
 
-libchardet_la-LangSpanishModel.lo: tables/LangSpanishModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangSpanishModel.lo `test -f 'tables/LangSpanishModel.cpp' || echo '$(srcdir)/'`tables/LangSpanishModel.cpp
+tables/libchardet_la-LangSpanishModel.lo: tables/LangSpanishModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangSpanishModel.lo `test -f 'tables/LangSpanishModel.cpp' || echo '$(srcdir)/'`tables/LangSpanishModel.cpp
 
-libchardet_la-LangTurkishModel.lo: tables/LangTurkishModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangTurkishModel.lo `test -f 'tables/LangTurkishModel.cpp' || echo '$(srcdir)/'`tables/LangTurkishModel.cpp
+tables/libchardet_la-LangTurkishModel.lo: tables/LangTurkishModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangTurkishModel.lo `test -f 'tables/LangTurkishModel.cpp' || echo '$(srcdir)/'`tables/LangTurkishModel.cpp
 
-libchardet_la-LangVietnameseModel.lo: tables/LangVietnameseModel.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-LangVietnameseModel.lo `test -f 'tables/LangVietnameseModel.cpp' || echo '$(srcdir)/'`tables/LangVietnameseModel.cpp
+tables/libchardet_la-LangVietnameseModel.lo: tables/LangVietnameseModel.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o tables/libchardet_la-LangVietnameseModel.lo `test -f 'tables/LangVietnameseModel.cpp' || echo '$(srcdir)/'`tables/LangVietnameseModel.cpp
 
 libchardet_la-nsBig5Prober.lo: nsBig5Prober.cpp
 	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libchardet_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libchardet_la-nsBig5Prober.lo `test -f 'nsBig5Prober.cpp' || echo '$(srcdir)/'`nsBig5Prober.cpp
@@ -627,6 +648,7 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
+	-rm -rf tables/.libs tables/_libs
 install-includeHEADERS: $(include_HEADERS)
 	@$(NORMAL_INSTALL)
 	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
@@ -764,6 +786,7 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-rm -f tables/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
