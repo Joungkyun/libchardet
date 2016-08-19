@@ -1,11 +1,10 @@
 # Process this file with autoconf to produce a configure script.
 # Configure template for chardet library
 #
-# $Id$
 
 #
 AC_PREREQ(2.59)
-AC_INIT([libchardet], [1.0.6], [http://oops.org])
+AC_INIT([libchardet], [1.0.6], [https://github.com/Joungkyun/libchardet/issues])
 AC_CONFIG_AUX_DIR([tools])
 AM_INIT_AUTOMAKE([-Wall -Werror -Wno-override foreign no-dependencies])
 AM_MAINTAINER_MODE
