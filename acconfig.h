@@ -1,6 +1,6 @@
 /* $Id$ */
-#ifndef CHARDEC_CONFIG_H
-#define CHARDEC_CONFIG_H
+#ifndef CHARDET_CONFIG_H
+#define CHARDET_CONFIG_H
 
 
 /* config.h:  a general config file */
@@ -9,4 +9,4 @@
 
 @BOTTOM@
 
-#endif /*  CHARDEC_CONFIG_H */
+#endif /*  CHARDET_CONFIG_H */
