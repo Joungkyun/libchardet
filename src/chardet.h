@@ -32,6 +32,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#ifndef CHARDET_H
+#define CHARDET_H
+
 /*
 #if defined _WIN32 || defined __CYGWIN__
 	#define CHARDET_API
@@ -105,6 +108,8 @@ extern "C" {
 #ifdef __cplusplus
 };
 #endif
+
+#endif // close define CHARDET_H
 
 /*
  * Local variables:
