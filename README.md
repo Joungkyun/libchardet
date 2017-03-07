@@ -3,7 +3,7 @@ libchardet - Mozilla's Universal Charset Detector C/C++ API
 [![Build Status](https://travis-ci.org/Joungkyun/libchardet.svg?branch=master)](https://travis-ci.org/Joungkyun/libchardet) [![GitHub license](https://img.shields.io/badge/license-MPL%201.1-blue.svg)](https://raw.githubusercontent.com/Joungkyun/libchardet/master/LICENSE)
 
 ## License
-Copyright (c) 2016 JoungKyun.Kim <http://oops.org> All rights reserved.
+Copyright (c) 2017 JoungKyun.Kim <http://oops.org> All rights reserved.
 
 This program is under MPL 1.1 or LGPL 2.1
 

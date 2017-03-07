@@ -1,6 +1,6 @@
 dnl
 dnl                       Written by JoungKyun.Kim
-dnl            Copyright (c) 2011 JoungKyun.Kim <http://oops.org>
+dnl            Copyright (c) 2017 JoungKyun.Kim <http://oops.org>
 dnl
 dnl ----------------------------------------------------------------------------
 dnl Redistribution and use in source and binary forms, with or without
