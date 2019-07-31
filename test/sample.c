@@ -6,10 +6,16 @@
 #include <chardet.h>
 //#include "../src/chardet.h"
 
-int main (void) {
+#ifdef CHARDET_BINARY_SAFE
+    #define detect_handledata_str(x,y,z) detect_handledata_r(x, y, strlen(y), z)
+#else
+    #define detect_handledata_str(x,y,z) detect_handledata(x, y, z)
+#endif
+
+int main (int argc, char ** argv) {
 	Detect * d;
 	DetectObj *obj;
-	int i;
+	int i, ret = 0;
 
 	char *str[] = {
 		"안녕",
@@ -19,6 +25,16 @@ int main (void) {
 		"좀더 길게 적어 볼까 얼마나 길게 해야!",
 		"그래 그래 좀 더 길게 적어 보자 더 길게 적어 보야야 겠지...",
 		"12345 abcde"
+	};
+
+	char *expect[] = {
+		"ECU-KR",
+		"ECU-KR",
+		"ECU-KR",
+		"ECU-KR",
+		"ECU-KR",
+		"ECU-KR",
+		"ASCII"
 	};
 
 	short arrayNum;
@@ -38,20 +54,25 @@ int main (void) {
 			continue;
 		}
 
-#ifdef CHARDET_BINARY_SAFE
-		if ( detect_handledata_r (&d, str[i], strlen (str[i]), &obj) == CHARDET_OUT_OF_MEMORY )
-#else
-		if ( detect_handledata (&d, str[i], &obj) == CHARDET_OUT_OF_MEMORY )
-#endif
+		if ( detect_handledata_str (&d, str[i], &obj) == CHARDET_OUT_OF_MEMORY )
 		{
 			fprintf (stderr, "On handle processing, occured out of memory\n");
 			return CHARDET_OUT_OF_MEMORY;
 		}
-		printf ("## %s : %s : %f : %d\n", str[i], obj->encoding, obj->confidence, obj->bom);
+
+		if ( argc > 1 )
+			printf ("#1 %s : %s : %f : %d\n", str[i], obj->encoding, obj->confidence, obj->bom);
+		else {
+			if ( strcmp(obj->encoding, expect[i]) != 0 || obj->confidence < 0.6 )
+				ret = 1;
+		}
 		detect_obj_free (&obj);
+
+		if ( ret > 0 )
+			break;
 	}
 
 	detect_destroy (&d);
 
-	return 0;
+	return ret;
 }

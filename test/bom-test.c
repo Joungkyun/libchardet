@@ -13,13 +13,13 @@
 	#define detect_api(x,y) detect(x, y)
 #endif
 
-int main (void) {
+int main (int argc, char **argv) {
 	DetectObj *obj;
 	FILE      *fp;
 	struct     stat sb;
 	char      *buf;
 	char      *buf1;
-	size_t     n, i;
+	size_t     n, i, bom, ret = 0;
 	char      *f[2] = { "utf-8-bom.txt", "utf-8.txt" };
 
 	for ( i=0; i<2; i++ ) {
@@ -55,10 +55,20 @@ int main (void) {
 			memset (buf + n - 4, 0, 1);
 		}
 
-		printf ("## Charset: %s, Confidence: %f, BOM: %d => %s\n", obj->encoding, obj->confidence, obj->bom, buf);
+		if ( argc > 1 ) {
+			printf ("## Charset: %s, Confidence: %f, BOM: %d => %s\n", obj->encoding, obj->confidence, obj->bom, buf);
+		} else {
+			bom = i ? 0 : 1;
+			if ( strcmp (obj->encoding, "UTF-8") != 0 && obj->confidence < 0.6 && bom != obj->bom ) {
+				ret = 1;
+			}
+		}
 
 		free (buf);
 		detect_obj_free (&obj);
+
+		if ( ret != 0 )
+			return 1;
 	}
 	return 0;
 }

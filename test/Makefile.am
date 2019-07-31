@@ -27,24 +27,23 @@
 # the provisions above, a recipient may use your version of this file under
 # the terms of any one of the MPL, the GPL or the LGPL.
 
-DISTCLEANFILES =
-EXTRA_DIST = Changelog LICENSE libchardet.spec \
-			 project/libchardet.cbp
+AM_CLFAGS = -Wall
+AM_CPPFLAGS = -I$(top_srcdir)/src -I$(top_srcdir)/include
+LDADD = $(top_srcdir)/src/libchardet.la
 
-ACLOCAL_AMFLAGS = -I m4
-SUBDIRS = . src man test
+ctests = bom-test sample sample1
+TESTS = $(ctests)
+check_PROGRAMS = $(ctests)
+TESTS_ENVIRONMENT = $(VALGRIND)
 
-#docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
-dist_doc_DATA = Changelog LICENSE
+SAMPLESOURCES = bom-test sample sample1
 
-bin_SCRIPTS = chardet-config
-pkgconfigdir=$(libdir)/pkgconfig
-pkgconfig_DATA = chardet.pc
+byhand:
+	for bins in $(SAMPLESOURCES); \
+	do \
+		$(CC) -I$(top_srcdir)/src -I$(top_srcdir)/include -L$(top_srcdir)/src/.libs -o $$bins $$bins.c -lchardet; \
+		LD_LIBRARY_PATH=$(top_srcdir)/src/.libs ./$$bins 1; \
+	done
 
-DISTCLEANFILES += *.bz2 aclocal.m4 *~
+CLEANFILES = $(SAMPLESOURCES)
 
-test-install:
-	$(MAKE) DESTDIR=`pwd`/test-install install
-
-distclean-local:
-	rm -rf autom4te.cache test-install

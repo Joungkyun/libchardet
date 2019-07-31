@@ -73,6 +73,7 @@ AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
 	man/Makefile
+	test/Makefile
 	chardet-config
 	chardet.pc
 	libchardet.spec
