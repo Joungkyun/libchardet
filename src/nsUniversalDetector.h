@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * vim600: et sw=2 ts=2 fdm=marker
+ * vim: et sw=2 ts=2 fdm=marker
  */
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
@@ -24,6 +24,7 @@
  * Contributor(s):
  *          JoungKyun.Kim <http://oops.org>
  *            - Add mDetectedConfidence
+ *            - Add mDetectedIsBOM
  *
  * $Id$
  *
@@ -86,6 +87,7 @@ protected:
    char    mLastChar;
    const char *  mDetectedCharset;
    float   mDetectedConfidence;
+   short   mDetectedIsBOM;
    PRInt32 mBestGuess;
    PRUint32 mLanguageFilter;
 

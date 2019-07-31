@@ -1,8 +1,7 @@
-.TH detect_destroy 3 2015-12-11 "libchardet manuals"
+.TH detect_destroy 3 2019-08-01 "libchardet manuals"
 .\" Process with
 .\" nroff -man detect_destroy.3
-.\" 2015-12-11 JoungKyun Kim <htt://oops.org>
-.\" $Id$
+.\" 2019-08-01 JoungKyun Kim <htt://oops.org>
 
 .SH 이름
 detect_destroy \- chardet resource를 해제한다.
@@ -51,7 +50,8 @@ int main (void) {
 			return CHARDET_NULL_OBJECT;
 	}
 
-	printf ("encoding: %s, confidence: %f\\n", obj->encoding, obj->confidence);
+	# obj-bom 은 CHARDET_BOM_CHECK 상수 지원여부로 지원을 판단할 수 있습니다.
+	printf ("encoding: %s, confidence: %f, exists bom: %d\\n", obj->encoding, obj->confidence, obj->bom);
 	detect_obj_free (&obj);
 	detect_destroy (&d);
 
@@ -63,7 +63,7 @@ int main (void) {
 김정균
 
 .SH 버그 리포트
-<http://oops.org> 의 QnA 게시판을 이용한다.
+https://github.com/Joungkyun/libchardet/issues
 
 .SH "참고"
 detect_init(3), detect_reset(3)

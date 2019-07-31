@@ -1,8 +1,7 @@
-.TH detect 3 2016-05-05 "libchardet manuals"
+.TH detect 3 2019-08-01 "libchardet manuals"
 .\" Process with
 .\" nroff -man detect.3
-.\" 2016-05-05 JoungKyun.Kim <htt://oops.org>
-.\" $Id$
+.\" 2019-08-01 JoungKyun.Kim <htt://oops.org>
 
 .SH 이름
 detect, detect_r \- 문자열의 문자셋과 정확도를 측정
@@ -46,6 +45,7 @@ API를 이용하십시오.
 	typedef struct DetectObject {
 		char * encoding;
 		float confidence;
+		short bom;
 	} DetectObj;
 .fi
 
@@ -109,7 +109,8 @@ int main (void) {
 			return CHARDET_NULL_OBJECT;
 	}
 
-	printf ("encoding: %s, confidence: %f\\n", obj->encoding, obj->confidence);
+	# obj-bom 은 CHARDET_BOM_CHECK 상수 지원여부로 지원을 판단할 수 있습니다.
+	printf ("encoding: %s, confidence: %f, exists bom: %d\\n", obj->encoding, obj->confidence, obj->bom);
 	detect_obj_free (&obj);
 
     return 0;
@@ -120,7 +121,7 @@ int main (void) {
 김정균
 
 .SH 버그 리포트
-<http://oops.org> 의 QnA 게시판을 이용한다.
+https://github.com/Joungkyun/libchardet/issues
 
 .SH "참고"
 detect_handledata(3), detect_obj_init(3), detect_obj_free(3)

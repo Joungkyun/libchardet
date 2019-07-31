@@ -9,13 +9,16 @@ CC     = gcc
 CFLAGS = -I../src -I../include
 LIBS   = -L../src/.libs -Wl,-rpath=../src/.libs -lchardet -lstdc++
 
-all: sample sample1
+all: sample sample1 bom-test
 
-sample:
-	$(CC) $(DEFS) $(CFLAGS) sample.c $(LIBS) -o sample
+sample: sample.c
+	$(CC) $(DEFS) $(CFLAGS) $< $(LIBS) -o $@
 
-sample1:
-	$(CC) $(DEFS) $(CFLAGS) sample1.c $(LIBS) -o sample1
+sample1: sample1.c
+	$(CC) $(DEFS) $(CFLAGS) $< $(LIBS) -o $@
+
+bom-test: bom-test.c
+	$(CC) $(DEFS) $(CFLAGS) $< $(LIBS) -o $@
 
 clean :
-	-rm -f sample sample1
+	-rm -f sample sample1 bom-test

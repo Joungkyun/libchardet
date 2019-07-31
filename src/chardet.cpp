@@ -16,8 +16,6 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id$
- *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
  * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
@@ -43,6 +41,7 @@ class Detector: public nsUniversalDetector {
 		virtual ~Detector () {}
 		const char *getCharsetName () { return mDetectedCharset; }
 		float getConfidence () { return mDetectedConfidence; }
+		short getIsBOM () { return mDetectedIsBOM; }
 		virtual void Reset () { this->nsUniversalDetector::Reset (); }
 	protected:
 		virtual void Report (const char* aCharset) { mDetectedCharset = aCharset; }
@@ -70,6 +69,7 @@ CHARDET_API DetectObj * detect_obj_init (void) {
 
 	obj->encoding = NULL;
 	obj->confidence = 0.0;
+	obj->bom = 0;
 
 	return obj;
 }
@@ -121,6 +121,7 @@ CHARDET_API short detect_handledata_r (Detect ** det, const char * buf, size_t b
 
 	(*obj)->encoding = (char *) strdup (ret);
 	(*obj)->confidence = (*det)->detect->getConfidence ();
+	(*obj)->bom = (*det)->detect->getIsBOM ();
 
 	return CHARDET_SUCCESS;
 }
@@ -156,6 +157,7 @@ CHARDET_API short detect_r (const char *buf, size_t buflen, DetectObj ** obj) {
 
 	(*obj)->encoding = (char *) strdup (ret);
 	(*obj)->confidence = det->getConfidence ();
+	(*obj)->bom = det->getIsBOM ();
 
 	return CHARDET_SUCCESS;
 }
@@ -165,6 +167,6 @@ CHARDET_API short detect_r (const char *buf, size_t buflen, DetectObj ** obj) {
  * tab-width: 4
  * c-basic-offset: 4
  * End:
- * vim600: noet sw=4 ts=4 fdm=marker
+ * vim: noet sw=4 ts=4 fdm=marker
  * vim<600: noet sw=4 ts=4
  */

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * vim600: et sw=2 ts=2 fdm=marker
+ * vim: et sw=2 ts=2 fdm=marker
  */
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
@@ -25,8 +25,8 @@
  *          Shy Shalom <shooshX@gmail.com>
  *          JoungKyun.Kim <http://oops.org>
  *            - Add mDetectedConfidence
+ *            - Add mDetectedIsBOM
  *
- * $Id$
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -62,6 +62,7 @@ nsUniversalDetector::nsUniversalDetector(PRUint32 aLanguageFilter)
   mStart = PR_TRUE;
   mDetectedCharset = nsnull;
   mDetectedConfidence = 0.0;
+  mDetectedIsBOM = 0;
   mGotData = PR_FALSE;
   mInputState = ePureAscii;
   mLastChar = '\0';
@@ -91,6 +92,7 @@ nsUniversalDetector::Reset()
   mStart = PR_TRUE;
   mDetectedCharset = nsnull;
   mDetectedConfidence = 0.0;
+  mDetectedIsBOM = 0;
   mGotData = PR_FALSE;
   mInputState = ePureAscii;
   mLastChar = '\0';
@@ -128,6 +130,7 @@ nsresult nsUniversalDetector::HandleData(const char* aBuf, PRUint32 aLen)
             // EF BB BF  UTF-8 encoded BOM
             mDetectedCharset = "UTF-8";
             mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
           }
         break;
         case '\xFE':
@@ -135,10 +138,12 @@ nsresult nsUniversalDetector::HandleData(const char* aBuf, PRUint32 aLen)
             // FE FF 00 00  UCS-4, unusual octet order BOM (3412)
             mDetectedCharset = "X-ISO-10646-UCS-4-3412";
             mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
           } else if ('\xFF' == aBuf[1]) {
             // FE FF  UTF-16, big endian BOM
             mDetectedCharset = "UTF-16BE";
             mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
           }
         break;
         case '\x00':
@@ -146,10 +151,12 @@ nsresult nsUniversalDetector::HandleData(const char* aBuf, PRUint32 aLen)
             // 00 00 FE FF  UTF-32, big-endian BOM
             mDetectedCharset = "UTF-32BE";
             mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
           } else if (('\x00' == aBuf[1]) && ('\xFF' == aBuf[2]) && ('\xFE' == aBuf[3])) {
             // 00 00 FF FE  UCS-4, unusual octet order BOM (2143)
             mDetectedCharset = "X-ISO-10646-UCS-4-2143";
             mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
           }
         break;
         case '\xFF':
@@ -157,11 +164,72 @@ nsresult nsUniversalDetector::HandleData(const char* aBuf, PRUint32 aLen)
             // FF FE 00 00  UTF-32, little-endian BOM
             mDetectedCharset = "UTF-32LE";
             mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
           } else if ('\xFE' == aBuf[1]) {
             // FF FE  UTF-16, little endian BOM
             mDetectedCharset = "UTF-16LE";
             mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
           }
+        break;
+        case '\x2B':
+          if (('\x2F' == aBuf[1]) && ('\x76' == aBuf[2])) {
+            switch (aBuf[3]) {
+              case '\x38':
+              case '\x39':
+              case '\x2B':
+              case '\x2F':
+                // https://en.wikipedia.org/wiki/Byte_order_mark#Byte_order_marks_by_encoding
+                // 2B 2F 76 38  UTF-7
+                // 2B 2F 76 39  UTF-7
+                // 2B 2F 76 2B  UTF-7
+                // 2B 2F 76 2F  UTF-7
+                mDetectedCharset = "UTF-7";
+                mDetectedConfidence = 1.0;
+                mDetectedIsBOM = 1;
+              break;
+            }
+          }
+        break;
+        case '\xE7':
+          if (('\x64' == aBuf[1]) && ('\x4C' == aBuf[2])) {
+            // E7 64 4c  UTF-1 encoded BOM
+            mDetectedCharset = "UTF-1";
+            mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
+          }
+        break;
+        case '\xDD':
+          if (('\x73' == aBuf[1]) && ('\x66' == aBuf[2]) && ('\x73' == aBuf[3])) {
+            // DD 73 66 73  UTF-EBCDIC encoded BOM
+            mDetectedCharset = "UTF-EBCDIC";
+            mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
+          } 
+        break;
+        case '\x0E':
+          if (('\xFE' == aBuf[1]) && ('\xFF' == aBuf[2])) {
+            // 0E FE FF  SCSU encoded BOM
+            mDetectedCharset = "SCSU";
+            mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
+          }
+        break;
+        case '\xFB':
+          if (('\xEE' == aBuf[1]) && ('\x28' == aBuf[2])) {
+            // FB EE 28  BOCU-1 encoded BOM
+            mDetectedCharset = "BOCU-1";
+            mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
+          }
+        break;
+        case '\x84':
+          if (('\x31' == aBuf[1]) && ('\x95' == aBuf[2]) && ('\x33' == aBuf[3])) {
+            // 84 31 95 33  GB18030 encoded BOM
+            mDetectedCharset = "GB18030";
+            mDetectedConfidence = 1.0;
+            mDetectedIsBOM = 1;
+          } 
         break;
       }  // switch
 
@@ -272,6 +340,7 @@ nsresult nsUniversalDetector::HandleData(const char* aBuf, PRUint32 aLen)
     mDone = PR_TRUE;
     mDetectedCharset = mNbspFound ? "ISO-8859-1" : "ASCII";
     mDetectedConfidence = 1.0;
+    mDetectedIsBOM = 0;
   }
   return NS_OK;
 }

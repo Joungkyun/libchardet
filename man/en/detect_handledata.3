@@ -1,8 +1,7 @@
-.TH detect_handledata 3 2015-12-11 "libchardet manuals"
+.TH detect_handledata 3 2019-08-01 "libchardet manuals"
 .\" Process with
 .\" nroff -man detect_handledata.3
-.\" 2016-05-05 JoungKyun.Kim <htt://oops.org>
-.\" $Id$
+.\" 2019-08-01 JoungKyun.Kim <htt://oops.org>
 
 .SH NAME
 detect_handledata, detect_handledata_r \- Detecting character set and measuring accuracy of charset
@@ -136,7 +135,8 @@ int main (void) {
 				return CHARDET_NULL_OBJECT;
 		}
 
-		printf ("encoding: %s, confidence: %f\\n", obj->encoding, obj->confidence);
+		# check support obj->bom with CHARDET_BOM_CHECK constant
+		printf ("encoding: %s, confidence: %f, exists bom: %d\\n", obj->encoding, obj->confidence, obj->bom);
 		detect_obj_free (&obj);
 	}
 	detect_destroy (&d);
@@ -149,7 +149,7 @@ int main (void) {
 JoungKyun.Kim <http://oops.org>
 
 .SH "BUG REPORTS"
-Use QnA board on http://oops.org
+Use QnA board on https://github.com/Joungkyun/libchardet/issues
 
 .SH "SEE ALSO"
 detect_obj_init(3), detect_obj_free(3), detect_init(3), detect_reset(3), detect_destroy(3)

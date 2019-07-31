@@ -24,6 +24,11 @@ From 1.0.5, libchardet was reflected single-byte charset detection confidence
 algorithm of [uchardet](https://github.com/BYVoid/uchardet/) and new language models.
 (Arabic, Danish, Esperanto, German, Spanish, Turkish, Vietnamese)
 
+From 1.0.6, bom members have been added to the DetectObj structure.
+The value of the bom member is 1, which means that it has been detected as a BOM.
+Support for bom member can be determined by the existence of the CHARDET_BOM_CHECK
+constant. See example below.
+
 ## Installation
 
 See also [INSTALL](INSTALL) document
@@ -63,10 +68,18 @@ See also test directory of source code
                       return CHARDET_NULL_OBJECT;
             }
 
+        #ifndef CHARDET_BOM_CHECK
             printf ("encoding: %s, confidence: %f\n", obj->encoding, obj->confidence);
+        #else
+            // from 1.0.6 support return whether exists BOM
+            printf (
+                "encoding: %s, confidence: %f, exist BOM: %d\n",
+                 obj->encoding, obj->confidence, obj->bom
+            );
+        #endif
             detect_obj_free (&obj);
 
-           return 0;
+            return 0;
        }
 ```
 
@@ -112,7 +125,15 @@ or looping code
                           return CHARDET_NULL_OBJECT;
                 }
 
+        #ifndef CHARDET_BOM_CHECK
                 printf ("encoding: %s, confidence: %f\n", obj->encoding, obj->confidence);
+        #else
+                // from 1.0.6 support return whether exists BOM
+                printf (
+                    "encoding: %s, confidence: %f, exist BOM: %d\n",
+                    obj->encoding, obj->confidence, obj->bom
+                );
+        #endif
                 detect_obj_free (&obj);
 
                 if ( 1 )

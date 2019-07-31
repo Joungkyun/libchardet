@@ -16,8 +16,6 @@
  *          Detect class by John Gardiner Myers <jgmyers@proofpoint.com>
  *          C wrapping API by JoungKyun.Kim <http://oops.org>
  *
- * $Id$
- *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
  * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
@@ -81,6 +79,9 @@
 // whether to support detect_r and detect_handledata_r API
 #define CHARDET_BINARY_SAFE 1
 
+// whether to support bom member of DetectObj structure
+#define CHARDET_BOM_CHECK 1
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -89,6 +90,7 @@ extern "C" {
 	typedef struct DetectObject {
 		char * encoding;
 		float confidence;
+		short bom;
 	} DetectObj;
 
 	CHARDET_API char * detect_version (void);
@@ -116,6 +118,6 @@ extern "C" {
  * tab-width: 4
  * c-basic-offset: 4
  * End:
- * vim600: noet sw=4 ts=4 fdm=marker
+ * vim: noet sw=4 ts=4 fdm=marker
  * vim<600: noet sw=4 ts=4
  */

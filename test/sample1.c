@@ -39,7 +39,7 @@ int main (void) {
 			fprintf (stderr, "On handle processing, occured out of memory\n");
 			return CHARDET_OUT_OF_MEMORY;
 		}
-		printf ("## %s : %s : %f\n", str[i], obj->encoding, obj->confidence);
+		printf ("## %s : %s : %f : %d\n", str[i], obj->encoding, obj->confidence, obj->bom);
 		detect_obj_free (&obj);
 	}
 
