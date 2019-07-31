@@ -27,8 +27,6 @@
 # the provisions above, a recipient may use your version of this file under
 # the terms of any one of the MPL, the GPL or the LGPL.
 
-# $Id$
-
 SONAME_MAJOR    = @SONAME_MAJOR@
 SONAME_MINOR    = @SONAME_MINOR@
 SONAME_REVISION = @SONAME_REVISION@

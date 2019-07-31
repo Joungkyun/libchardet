@@ -1,6 +1,6 @@
 
 Oridignal Encode-Detect code 1.01 diff
-$Id$
+
 
 diff -urNp Encode-Detect-1.01/src/Makefile.in libchardet-1.0.0/src/Makefile.in
 --- Encode-Detect-1.01/src/Makefile.in	1970-01-01 09:00:00.000000000 +0900
@@ -270,7 +270,7 @@ diff -urNp Encode-Detect-1.01/src/chardet.cpp libchardet-1.0.0/src/chardet.cpp
 + * tab-width: 4
 + * c-basic-offset: 4
 + * End:
-+ * vim600: noet sw=4 ts=4 fdm=marker
++ * vim: noet sw=4 ts=4 fdm=marker
 + * vim<600: noet sw=4 ts=4
 + */ 
 diff -urNp Encode-Detect-1.01/src/chardet.h libchardet-1.0.0/src/chardet.h
@@ -354,7 +354,7 @@ diff -urNp Encode-Detect-1.01/src/chardet.h libchardet-1.0.0/src/chardet.h
 + * tab-width: 4
 + * c-basic-offset: 4
 + * End:
-+ * vim600: noet sw=4 ts=4 fdm=marker
++ * vim: noet sw=4 ts=4 fdm=marker
 + * vim<600: noet sw=4 ts=4
 + */
 diff -urNp Encode-Detect-1.01/src/nsUniversalDetector.cpp libchardet-1.0.0/src/nsUniversalDetector.cpp

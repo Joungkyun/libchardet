@@ -1,7 +1,3 @@
-#
-# $Id$
-#
-
 CC     = gcc
 #CFLAGS = `chardet-config --cflags`
 #DEFS   = `chardet-config --defs`

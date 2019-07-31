@@ -1,7 +1,6 @@
 /*
  * sample code with libchardet
  * author: JoungKyun.Kim <http://oops.org>
- * $Id$
  */
 
 #include <chardet.h>

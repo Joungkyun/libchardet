@@ -1,6 +1,4 @@
 #!/bin/sh
-#
-# $Id$
 
 export LIBTOOL=/usr/bin/libtool
 export AUTOMAKE=/usr/bin/automake
