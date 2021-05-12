@@ -148,17 +148,21 @@ CHARDET_API short detect_r (const char *buf, size_t buflen, DetectObj ** obj) {
 	det->DataEnd ();
 
 	ret = det->getCharsetName ();
-	delete det;
 
-	if ( ! ret )
+	if ( ! ret ){
+		delete det;
 		return CHARDET_NO_RESULT;
-	else if ( *obj == NULL )
+	}
+	else if ( *obj == NULL ){
+		delete det;
 		return CHARDET_NULL_OBJECT;
+	}
 
 	(*obj)->encoding = (char *) strdup (ret);
 	(*obj)->confidence = det->getConfidence ();
 	(*obj)->bom = det->getIsBOM ();
 
+	delete det;
 	return CHARDET_SUCCESS;
 }
 
