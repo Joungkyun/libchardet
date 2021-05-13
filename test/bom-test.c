@@ -23,7 +23,10 @@ int main (int argc, char **argv) {
 	char      *f[2] = { "utf-8-bom.txt", "utf-8.txt" };
 
 	for ( i=0; i<2; i++ ) {
-		stat (f[i], &sb);
+		if ( stat (f[i], &sb) != 0 ) {
+			fprintf (stderr, "file %s not found.", f[i]);
+			continue;
+		}
 
 		buf = malloc (sizeof (char) * (sb.st_size + 4));
 		memset (buf, 0, sb.st_size + 4);

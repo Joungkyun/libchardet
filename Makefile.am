@@ -29,7 +29,7 @@
 
 DISTCLEANFILES =
 EXTRA_DIST = Changelog LICENSE libchardet.spec \
-			 project/libchardet.cbp
+			 project/libchardet.cbp test/utf-8.txt test/utf-8-bom.txt
 
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = . src man test
