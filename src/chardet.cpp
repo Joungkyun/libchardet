@@ -149,11 +149,10 @@ CHARDET_API short detect_r (const char *buf, size_t buflen, DetectObj ** obj) {
 
 	ret = det->getCharsetName ();
 
-	if ( ! ret ){
+	if ( ! ret ) {
 		delete det;
 		return CHARDET_NO_RESULT;
-	}
-	else if ( *obj == NULL ){
+	} else if ( *obj == NULL ) {
 		delete det;
 		return CHARDET_NULL_OBJECT;
 	}
