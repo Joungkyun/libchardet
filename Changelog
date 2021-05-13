@@ -6,6 +6,9 @@ Mozilla's Universal Charset Detector C/C++ library
 2021/05/14 KST
 	- fixed #14 can't detect short euc-kr
 
+2021/05/13 KST
+	- fixed #18 SECURITY! Invalid memory approach (heap-use-after-free) (@gaoxiang-ut)
+
 2019/08/01 KST
 	- fixed #13 bom member has been added to the DetectObj structure
 	- fixed #15 support automake style 'make check'
