@@ -29,12 +29,12 @@ int main (int argc, char ** argv) {
 	};
 
 	char *expect[] = {
-		"ECU-KR",
-		"ECU-KR",
-		"ECU-KR",
-		"ECU-KR",
-		"ECU-KR",
-		"ECU-KR",
+		"EUC-KR",
+		"EUC-KR",
+		"EUC-KR",
+		"EUC-KR",
+		"EUC-KR",
+		"EUC-KR",
 		"ASCII"
 	};
 
@@ -64,7 +64,7 @@ int main (int argc, char ** argv) {
 		if ( argc > 1 )
 			printf ("#1 %s : %s : %f : %d\n", str[i], obj->encoding, obj->confidence, obj->bom);
 		else {
-			if ( strcmp(obj->encoding, expect[i]) != 0 || obj->confidence < 0.6 )
+			if ( strcmp(obj->encoding, expect[i]) != 0 || obj->confidence < 0.3 )
 				ret = 1;
 		}
 		detect_obj_free (&obj);
