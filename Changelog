@@ -2,6 +2,10 @@ Mozilla's Universal Charset Detector C/C++ library
 
 *** 1.0.7
 
+2021/05/25 KST
+	- give a little weight to "probable sequences" about single byte charset
+	- update langage table for Greek, Thai and Vietnamese
+
 
 *** 1.0.6
 
