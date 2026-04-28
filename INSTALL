@@ -18,6 +18,9 @@ Author: JoungKyun.Kim <http://oops.org>
    Arch / ChakraOS :
            pacman -Syu; pacman -S libchardet
 
+   macOS / Homebrew :
+           brew install libchardet
+
 
 2. Source compile
 
